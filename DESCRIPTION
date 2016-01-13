@@ -1,0 +1,12 @@
+Package: fatsecretR
+Type: Package
+Title: R Client for the FatSectet REST API
+Version: 0.1
+Date: 2016-01-06
+Author: Tom Wilson <tpw2@aber.ac.uk>
+Maintainer: Tom Wilson <tpw2@aber.ac.uk>
+Description: R Client for the FatSectet REST API (http://http://platform.fatsecret.com/api/)
+Depends: httr, RCurl, XML
+Suggests: testthat
+License: GPL (>= 2)
+LazyData: TRUE
