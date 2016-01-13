@@ -3,7 +3,7 @@ language: r
 sudo: required
 
 r_binary_packages:
- - xml
+ - XML
  - RCurl
  - httr
  
