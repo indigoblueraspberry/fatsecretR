@@ -11,7 +11,7 @@
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 #'
-signatureValue <- function(SIG_BASE_STR, SHARED_SECRET, ACCESS_SECRET = NULL)
+signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), ACCESS_SECRET = NULL)
   {
 
   SIG_VAL <- paste(SHARED_SECRET ,"", sep = "&")

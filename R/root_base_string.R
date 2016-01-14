@@ -20,7 +20,7 @@
 #'
 #'
 
-root_base_string <- function(CONSUMER_KEY = CONSUMER_KEY)
+root_base_string <- function(CONSUMER_KEY = getOption("CONSUMER_KEY"))
   {
   http_method <- "GET"
   rest_url <- "http://platform.fatsecret.com/rest/server.api"
