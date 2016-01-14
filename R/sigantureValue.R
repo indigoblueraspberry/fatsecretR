@@ -11,11 +11,14 @@
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 #'
-signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), ACCESS_SECRET = NULL)
-  {
-
-  SIG_VAL <- paste(SHARED_SECRET ,"", sep = "&")
-
+signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), ACCESS_SECRET = getOption("ACCESS_SECRET"))
+                    {
+  if(is.null(ACCESS_SECRET)){
+    SIG_VAL <- paste(SHARED_SECRET ,"", sep = "&")
+  }
+  if(!is.null(ACCESS_SECRET)){
+    SIG_VAL <- paste(SHARED_SECRET,ACCESS_SECRET, sep = "&")
+  }
   ## encode the signature base string
   SIG_VAL_EN <- httr::hmac_sha1(SIG_VAL, SIG_BASE_STR)
 
