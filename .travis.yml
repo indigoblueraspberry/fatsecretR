@@ -2,6 +2,9 @@ language: r
 
 sudo: required
 
+apt_packages:
+ - libxml2
+ 
 r_binary_packages:
  - XML
  - RCurl
