@@ -9,11 +9,11 @@ API Method         | R Call
 -------------------|-------
 food.add_favourite | NULL
 food.delete_favourite| NULL
-food.get|NULL
+food.get|getFoodID
 foods.get_favourites|NULL
 foods.get_most_eaten|NULL
 foods.get_recently_eaten|NULL
-foods.search|NULL
+foods.search|getFood
 
 ##### 2. Recipes
 API Method         | R Call
@@ -49,8 +49,8 @@ exercises.get | NULL
 ##### 6. Profile Management
 API Method         | R Call
 -------------------|-------
-profile.create | NULL
-profile.get| NULL
+profile.create | makeProfile
+profile.get| getProfile
 profile.get_auth|NULL
 profile.request_script_session_key|NULL
 
