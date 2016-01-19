@@ -2,7 +2,7 @@
 ---
 All the available API methods are grouped into nine categories.
 
-Below are all the available methods organised into the relevant categories. The corresponding `R Call` is the available function in `fatsecretR` which matches the API method. Where `R Call` is `NULL`, this indicates that the API method hasnot yet been implemented in `fatsecretR`.
+Below are all the available methods organised into the relevant categories. The corresponding `R Call` is the available function in `fatsecretR` which matches the API method. Where `R Call` is `NULL`, this indicates that the API method has not yet been implemented in `fatsecretR`.
 
 ##### 1. Foods
 API Method         | R Call
@@ -51,7 +51,7 @@ API Method         | R Call
 -------------------|-------
 profile.create | makeProfile
 profile.get| getProfile
-profile.get_auth|NULL
+profile.get_auth|getAuth
 profile.request_script_session_key|NULL
 
 ##### 7. Profile Food Diary
