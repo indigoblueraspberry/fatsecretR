@@ -7,7 +7,6 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
-#'
 
 getAuth <- function(user_id)
   {
@@ -26,7 +25,7 @@ getAuth <- function(user_id)
 
   # now make signature value
 
-  signature <- signatureValue(SIG_BASE_STR, ACCESS_SECRET = NULL)
+  signature <- signatureValue(SIG_BASE_STR)
 
   query_url_a <- gsub("GET&", "",URLdecode(qrbs$url))
   query_url_b <- paste(query_string, signature, sep = "&")

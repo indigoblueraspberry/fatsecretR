@@ -17,8 +17,6 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
-#'
-#'
 
 root_base_string <- function(CONSUMER_KEY = getOption("CONSUMER_KEY"))
   {

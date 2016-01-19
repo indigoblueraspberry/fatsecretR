@@ -8,9 +8,14 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
-#
+
 getFood <- function(food)
   {
+
+  if(!is.character(food)){
+    stop("...food must be a character string", call. = FALSE)
+  }
+
   # make the query root base string (qrbs)
   qrbs <- root_base_string()
 
@@ -32,7 +37,7 @@ getFood <- function(food)
 
   # now make signature value
 
-  signature <- signatureValue(SIG_BASE_STR, ACCESS_SECRET = NULL)
+  signature <- signatureValue(SIG_BASE_STR)
 
   query_url_a <- gsub("GET&", "",URLdecode(qrbs$url))
   query_url_b <- paste(query_string, signature, sep = "&")

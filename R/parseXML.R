@@ -8,7 +8,7 @@
 #'
 #' @author Tom Wilson \code{tpw2@@aber.ac.uk}
 #' @export
-#'
+
 
 parseXML <- function(URLreq)
   {

@@ -7,7 +7,7 @@
 #'
 #' @author Tom Wilson \email{tpw@@aber.ac.uk}
 #' @export
-#'
+
 #' @examples
 #' \dontrun{
 #' a_time_stamp <- TIMESTAMP()

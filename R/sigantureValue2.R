@@ -1,18 +1,21 @@
-#' Authentication Signature Value
+#' Authentication Signature Value using a User Secret
 #'
 #' Create the signature value which encodes the signature base string and forms the \code{oauth_signature}
-#' parameter
+#' parameter. \code{signatureValue2} should be used when a \code{oauth_token} has been passed in the signature base string,
+#' and thus the signature value must be encoded with the concatenated shared secret and user secret.
 #'
 #' @param SIG_BASE_STR A signature base string which has been \code{RFC 3968} encoded.
 #' @param SHARED_SECRET A alphanumeric string of your REST API Shared Secret.
+#' @param ACCESS_SECRET A alphanumeric string of a Access Secret Token.
 #' @return A \code{HMAC SHA1} encoded \code{oauth_signature}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"))
-                    {
-  SIG_VAL <- paste(SHARED_SECRET ,"", sep = "&")
+signatureValue2 <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), ACCESS_SECRET = getOption("user_secret"))
+{
+
+  SIG_VAL <- paste(SHARED_SECRET,ACCESS_SECRET, sep = "&")
 
   ## encode the signature base string
   SIG_VAL_EN <- httr::hmac_sha1(SIG_VAL, SIG_BASE_STR)
@@ -24,4 +27,4 @@ signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRE
 
   return(oauth_signature)
 
-  }
+}
