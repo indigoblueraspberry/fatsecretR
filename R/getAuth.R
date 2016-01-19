@@ -10,6 +10,9 @@
 
 getAuth <- function(user_id)
   {
+  if(!is.character(user_id)){
+    stop("...user_id must be a character string", call. = FALSE)
+  }
   qrbs <- root_base_string()
 
   method <- paste("method", "profile.get_auth", sep = "=")
