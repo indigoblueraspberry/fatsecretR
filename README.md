@@ -14,6 +14,6 @@ In order to make use of the fatsecret REST API, you must first register as an AP
 These two key's should remain private and not be hard-coded into any functions. At the start of each fatsecretR session the user will need to load the two key values into R.
 
 ```R
-options(COMSUMER_KEY = "YourAPIKey")
+options(CONSUMER_KEY = "YourAPIKey")
 options(SHARED_SECRET = "YourAPISecret")
 ```
