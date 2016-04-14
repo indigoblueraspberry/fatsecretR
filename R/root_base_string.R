@@ -4,8 +4,8 @@
 #' which are consisent for each API query. For example, \code{oauth_timestamp},\code{oauth_nonce},\code{oauth_consumer_key}, will
 #' always be required, thus the \code{root} base string can be created independant of query paramerts and \code{oauth_signature}.
 #'
-#' @param CONSUMER_KEYtThis is your personal alphanumeric REST API key
-#' @returnaA list of six elements
+#' @param CONSUMER_KEY your personal alphanumeric REST API key
+#' @return a list of six elements
 #' \itemize{
 #'  \item{url} string of the HTTP method + the \code{RFC 3986} encoded API URL.
 #'  \item{con_key} string of the user's \code{API Consumer Key}
@@ -43,4 +43,3 @@ root_base_string <- function(CONSUMER_KEY = getOption("CONSUMER_KEY"))
 
   return(r_base_str)
   }
-

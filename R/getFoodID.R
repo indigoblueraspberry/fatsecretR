@@ -57,7 +57,7 @@ getFoodID <- function(food_id)
 
   food_df <- t(food_df)
 
-  nut_val <- parseXML2(food_res)
+  nut_val <- getFoodParse(food_res)
 
   food_list <- list(food_df, nut_val)
   names(food_list) <- c("id", "servings")

@@ -2,10 +2,10 @@
 #'
 #' Retrive the \code{ouath_token} and \code{oauth_secret} from Step 3 of 3 Legged OAuth1.0 Authentication
 #'
-#' @param verifierCode
-#' @param userToken
-#' @param tokenSecret
-#' @return a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the request.
+#' @param verifierCode the numeric verification code, from user authorization
+#' @param userToken a character string for the user \code{oauth_token}
+#' @param tokenSecret a character string for the user \code{oauth_secret}
+#' @return a \code{data.frame} containing the authorized \code{ouath_token} and \code{oauth_secret} for the request.
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
