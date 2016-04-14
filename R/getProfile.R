@@ -1,14 +1,13 @@
 #' Retrieve profile information
 #'
-#' @param user_id The profile id used during \code{makeProfile}
-#' @return The last recorded weight measure and current height measure
+#' @param user_id the profile id used during \code{makeProfile}
+#' @return the last recorded weight measure and current height measure
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 getProfile <- function(user_id)
   {
-
   if(!is.character(user_id)){
     stop("...user_id must be a character string", call. = FALSE)
   }

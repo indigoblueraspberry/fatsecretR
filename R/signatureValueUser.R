@@ -4,10 +4,10 @@
 #' parameter. \code{signatureValue2} should be used when a \code{oauth_token} has been passed in the signature base string,
 #' and thus the signature value must be encoded with the concatenated shared secret and user secret.
 #'
-#' @param SIG_BASE_STR A signature base string which has been \code{RFC 3968} encoded.
-#' @param SHARED_SECRET A alphanumeric string of your REST API Shared Secret.
-#' @param userSecret A alphanumeric string of a Access Secret Token.
-#' @return A \code{HMAC SHA1} encoded \code{oauth_signature}
+#' @param SIG_BASE_STR a signature base string which has been \code{RFC 3968} encoded.
+#' @param SHARED_SECRET a alphanumeric string of your REST API Shared Secret.
+#' @param userSecret a alphanumeric string of a Access Secret Token.
+#' @return a \code{HMAC SHA1} encoded \code{oauth_signature}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export

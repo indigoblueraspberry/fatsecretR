@@ -3,8 +3,8 @@
 #' Create a random alphanumeric string which can be used as the \code{oauth_nonce} parameter during
 #' \code{Oauth Core 1.0} authentication
 #'
-#' @param len A numeric value for the length of the string
-#' @return A random string of length \code{len}
+#' @param len a numeric value for the length of the string
+#' @return a random string of length \code{len}
 #'
 #' @author Tom Wislon \email{tpw2@@aber.ac.uk}
 #' @export

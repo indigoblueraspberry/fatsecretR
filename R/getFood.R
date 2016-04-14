@@ -3,8 +3,8 @@
 #' Query the FatSecret database for a specific food item. The main use of this function, is to to retrieve \code{food_ids} of
 #' specific foods, which can then be passed back to the API to retrive compostional information.
 #'
-#' @param food A string of the food item to search
-#' @return A \code{data.frame} of food items and their corresponding ID's.
+#' @param food a string of the food item to search
+#' @return a \code{data.frame} of food items and their corresponding ID's.
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
@@ -46,7 +46,7 @@ getFood <- function(food)
 
   #submit to API
   food_res = getURLContent(query_url_c)
-food_parse <- parseXML(food_res)
+  food_parse <- parseXML(food_res)
 
   idx <- which(names(food_parse) == "food")
 

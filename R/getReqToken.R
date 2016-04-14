@@ -1,8 +1,8 @@
 #' Get Request Token (3 Legged - Step 1)
 #'
-#' Retrive the \code{ouath_token} and \code{oauth_secret} for a profile created using \code{makeProfile}
+#' Retrive the \code{ouath_token} and \code{oauth_secret} from Step 1 of 3 Legged OAuth1.0 Authentication
 #'
-#' @return a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
+#' @return a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the request
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export

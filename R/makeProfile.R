@@ -4,8 +4,8 @@
 #' for the user. The tokens do not need to be saved, as providing a user_id string is specified,
 #' then tokens can be retrieved at any time using \codeP{getAuth}
 #'
-#' @param user_id A unique identifier for the new profile
-#' @return The user token and access secret for the new profile
+#' @param user_id a unique identifier for the new profile
+#' @return the user token and access secret for the new profile
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export

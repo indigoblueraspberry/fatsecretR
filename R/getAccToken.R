@@ -1,24 +1,22 @@
-
-
-#' Get Request Token (3 Legged - Step 1)
+#' Get Access Token (3 Legged - Step 3)
 #'
-#' Retrive the \code{ouath_token} and \code{oauth_secret} for a profile created using \code{makeProfile}
+#' Retrive the \code{ouath_token} and \code{oauth_secret} from Step 3 of 3 Legged OAuth1.0 Authentication
 #'
-#' @return a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
+#' @param verifierCode
+#' @param userToken
+#' @param tokenSecret
+#' @return a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the request.
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 getAccToken <- function(verifierCode, userToken, tokenSecret)
-{
-
-  qrbs <- root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/access_token", 
+  {
+  qrbs <- root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/access_token",
                              params = c(paste("oauth_verifier", verifierCode, sep = "="),paste("oauth_token", userToken, sep 						= "=") ))
 
   query_string <- paste(qrbs$con_key,qrbs$nonce,qrbs$sig_meth,
                         qrbs$time_stamp,qrbs$params[2],qrbs$params[1],qrbs$version,sep = "&")
-
-
 
   en_query_string <- URLencode(query_string, reserved = TRUE)
 
@@ -45,6 +43,5 @@ getAccToken <- function(verifierCode, userToken, tokenSecret)
     response[i,1] <- splitResponse[[i]][1]
     response[i,2] <- splitResponse[[i]][[2]]
   }
-
   return(response)
-}
+  }

@@ -2,11 +2,11 @@
 #'
 #' Query the FatSecret database for a specific food item using the database ID.
 #'
-#' @param food_id A numeric value which corresponds to a valid FatSecret database entry
-#' @return A list of two elements
+#' @param food_id a numeric value which corresponds to a valid FatSecret database entry
+#' @return a list of two elements
 #'  \itemize{
-#'    \item{id} The food descriptor information
-#'    \item{servings} The nutritional breakdown of the food by servings
+#'    \item{id} the food descriptor information
+#'    \item{servings} the nutritional breakdown of the food by servings
 #'  }
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}

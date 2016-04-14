@@ -4,15 +4,15 @@
 #' which are consisent for each API query. For example, \code{oauth_timestamp},\code{oauth_nonce},\code{oauth_consumer_key}, will
 #' always be required, thus the \code{root} base string can be created independant of query paramerts and \code{oauth_signature}.
 #'
-#' @param CONSUMER_KEY This is your personal alphanumeric REST API key
-#' @return A list of six elements
+#' @param CONSUMER_KEYtThis is your personal alphanumeric REST API key
+#' @returnaA list of six elements
 #' \itemize{
-#'  \item{url} String of the HTTP method + the \code{RFC 3986} encoded API URL.
-#'  \item{con_key} String of the user's \code{API Consumer Key}
-#'  \item{sig_meth} Srting of the signature method
-#'  \item{time_stamp} An interger
-#'  \item{nonce} A string
-#'  \item{version} A string
+#'  \item{url} string of the HTTP method + the \code{RFC 3986} encoded API URL.
+#'  \item{con_key} string of the user's \code{API Consumer Key}
+#'  \item{sig_meth} srting of the signature method
+#'  \item{time_stamp} an interger
+#'  \item{nonce} a string
+#'  \item{version} a string
 #' }
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}

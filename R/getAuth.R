@@ -1,9 +1,9 @@
-#' getAuth
+#' Get Authentication
 #'
 #' Retrive the \code{ouath_token} and \code{oauth_secret} for a profile created using \code{makeProfile}
 #'
-#' @param user The user_id for the profile to query
-#' @return A \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
+#' @param user the user_id for the profile to query
+#' @return a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
