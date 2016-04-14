@@ -34,7 +34,7 @@ getProfile <- function(user_id)
 
   # now make signature value
 
-  signature <- signatureValue2(SIG_BASE_STR)
+  signature <- signatureValueUser(SIG_BASE_STR, getOption("SHARED_SECRET"),getOption("user_secret"))
 
   query_url_a <- gsub("GET&", "",URLdecode(qrbs$url))
   query_url_b <- paste(query_string, signature, sep = "&")

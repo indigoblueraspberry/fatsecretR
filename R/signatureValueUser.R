@@ -6,16 +6,16 @@
 #'
 #' @param SIG_BASE_STR A signature base string which has been \code{RFC 3968} encoded.
 #' @param SHARED_SECRET A alphanumeric string of your REST API Shared Secret.
-#' @param ACCESS_SECRET A alphanumeric string of a Access Secret Token.
+#' @param userSecret A alphanumeric string of a Access Secret Token.
 #' @return A \code{HMAC SHA1} encoded \code{oauth_signature}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-signatureValue2 <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), ACCESS_SECRET = getOption("user_secret"))
+signatureValueUser <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), userSecret)
 {
 
-  SIG_VAL <- paste(SHARED_SECRET,ACCESS_SECRET, sep = "&")
+  SIG_VAL <- paste(SHARED_SECRET,userSecret, sep = "&")
 
   ## encode the signature base string
   SIG_VAL_EN <- httr::hmac_sha1(SIG_VAL, SIG_BASE_STR)

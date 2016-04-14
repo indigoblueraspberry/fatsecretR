@@ -45,10 +45,8 @@ getFood <- function(food)
 
 
   #submit to API
-
   food_res = getURLContent(query_url_c)
-
-  food_parse <- parseXML(food_res)
+food_parse <- parseXML(food_res)
 
   idx <- which(names(food_parse) == "food")
 
