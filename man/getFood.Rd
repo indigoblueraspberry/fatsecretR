@@ -7,10 +7,10 @@
 getFood(food)
 }
 \arguments{
-\item{food}{A string of the food item to search}
+\item{food}{a string of the food item to search}
 }
 \value{
-A \code{data.frame} of food items and their corresponding ID's.
+a \code{data.frame} of food items and their corresponding ID's.
 }
 \description{
 Query the FatSecret database for a specific food item. The main use of this function, is to to retrieve \code{food_ids} of

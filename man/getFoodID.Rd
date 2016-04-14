@@ -7,13 +7,13 @@
 getFoodID(food_id)
 }
 \arguments{
-\item{food_id}{A numeric value which corresponds to a valid FatSecret database entry}
+\item{food_id}{a numeric value which corresponds to a valid FatSecret database entry}
 }
 \value{
-A list of two elements
+a list of two elements
  \itemize{
-   \item{id} The food descriptor information
-   \item{servings} The nutritional breakdown of the food by servings
+   \item{id} the food descriptor information
+   \item{servings} the nutritional breakdown of the food by servings
  }
 }
 \description{

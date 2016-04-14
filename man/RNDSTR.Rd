@@ -7,10 +7,10 @@
 RNDSTR(len)
 }
 \arguments{
-\item{len}{A numeric value for the length of the string}
+\item{len}{a numeric value for the length of the string}
 }
 \value{
-A random string of length \code{len}
+a random string of length \code{len}
 }
 \description{
 Create a random alphanumeric string which can be used as the \code{oauth_nonce} parameter during

@@ -7,10 +7,10 @@
 getProfile(user_id)
 }
 \arguments{
-\item{user_id}{The profile id used during \code{makeProfile}}
+\item{user_id}{the profile id used during \code{makeProfile}}
 }
 \value{
-The last recorded weight measure and current height measure
+the last recorded weight measure and current height measure
 }
 \description{
 Retrieve profile information

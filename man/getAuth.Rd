@@ -2,15 +2,15 @@
 % Please edit documentation in R/getAuth.R
 \name{getAuth}
 \alias{getAuth}
-\title{getAuth}
+\title{Get Authentication}
 \usage{
 getAuth(user_id)
 }
 \arguments{
-\item{user}{The user_id for the profile to query}
+\item{user}{the user_id for the profile to query}
 }
 \value{
-A \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
+a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
 }
 \description{
 Retrive the \code{ouath_token} and \code{oauth_secret} for a profile created using \code{makeProfile}

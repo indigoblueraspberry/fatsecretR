@@ -7,12 +7,12 @@
 signatureValue(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"))
 }
 \arguments{
-\item{SIG_BASE_STR}{A signature base string which has been \code{RFC 3968} encoded.}
+\item{SIG_BASE_STR}{asignature base string which has been \code{RFC 3968} encoded.}
 
-\item{SHARED_SECRET}{A alphanumeric string of your REST API Shared Secret.}
+\item{SHARED_SECRET}{a alphanumeric string of your REST API Shared Secret.}
 }
 \value{
-A \code{HMAC SHA1} encoded \code{oauth_signature}
+a \code{HMAC SHA1} encoded \code{oauth_signature}
 }
 \description{
 Create the signature value which encodes the signature base string and forms the \code{oauth_signature}

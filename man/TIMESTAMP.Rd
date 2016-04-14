@@ -7,7 +7,7 @@
 TIMESTAMP()
 }
 \value{
-The current time and date in number of seconds since \code{January 1, 1970 00:00:00 GMT}
+the current time and date in number of seconds since \code{January 1, 1970 00:00:00 GMT}
 }
 \description{
 Create a POSIX timestamp which is used as the \code{oauth_timestamp} parameter during

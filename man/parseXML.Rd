@@ -7,10 +7,10 @@
 parseXML(URLreq)
 }
 \arguments{
-\item{URLreq}{The XML outout from a http GET requst}
+\item{URLreq}{the XML outout from a http GET requst}
 }
 \value{
-Parsed XML file
+parsed XML file
 }
 \description{
 Parse the \code{http GET} request from \code{XML} into a readable matrix
