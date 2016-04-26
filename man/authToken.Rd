@@ -8,8 +8,9 @@ authToken(requestToken)
 }
 \arguments{
 \item{requestToken}{a string of the \code{oauth_token} generate in 3 Legged Authentication Step 1.}
-
-\item{a}{url}
+}
+\value{
+a request \code{URL}
 }
 \description{
 Generate the \code{URL} for User Authorization
