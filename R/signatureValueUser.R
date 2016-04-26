@@ -13,7 +13,7 @@
 #' @export
 
 signatureValueUser <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), userSecret)
-{
+{	
 
   SIG_VAL <- paste(SHARED_SECRET,userSecret, sep = "&")
 
@@ -26,5 +26,4 @@ signatureValueUser <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_S
   oauth_signature <- paste("oauth_signature", SIG_VAL_EN2, sep = "=")
 
   return(oauth_signature)
-
 }

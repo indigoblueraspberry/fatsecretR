@@ -2,7 +2,7 @@
 #'
 #' Create a user profile which a specific user ID and retrieve the \code{oauth_token} and \code{access_secret}
 #' for the user. The tokens do not need to be saved, as providing a user_id string is specified,
-#' then tokens can be retrieved at any time using \codeP{getAuth}
+#' then tokens can be retrieved at any time using \code{getAuth}
 #'
 #' @param user_id a unique identifier for the new profile
 #' @return the user token and access secret for the new profile
