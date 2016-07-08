@@ -1,0 +1,63 @@
+#' get Food Entry
+#'
+#' Retrieve all food diary entries on a given date for a specified user
+#'
+#' @param user_toker the \code{ouath_token} for the user
+#' @param user_secret the \code{oauth_secret} for the user
+#' @param date the date to query. The date must be in the format \emph{YYYY-MM-DD}
+#' @return if there is only one food entry the result is returned in a \code{data.frame}. If there are multiple
+#' entries, a list of \code{data.frame's} is returned
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+
+getFoodEntry <- function(user_token, user_secret, date)
+  {
+  if(!is.character(date)){stop("...date must be a character string", call. = FALSE)}
+
+  qrbs <- root_base_string()
+
+  method <- paste("method", "food_entries.get", sep = "=")
+
+  date_posix <- as.numeric(as.Date(date))
+
+  search_exp <- paste("date", date_posix, sep = "=")
+  token <- paste("oauth_token", user_token, sep = "=")
+
+  # build entire query string
+  query_string <- paste(search_exp,method,qrbs$con_key,
+                      qrbs$nonce, qrbs$sig_meth, qrbs$time_stamp,
+                      token,qrbs$version,sep = "&")
+
+  en_query_string <- URLencode(query_string, reserved = TRUE)
+
+  SIG_BASE_STR <- paste(qrbs$url, en_query_string, sep = "&")
+
+  # now make signature value
+
+  signature <- signatureValueUser(SIG_BASE_STR, getOption("SHARED_SECRET"),user_secret)
+
+  query_url_a <- gsub("GET&", "",URLdecode(qrbs$url))
+  query_url_b <- paste(query_string, signature, sep = "&")
+  query_url_c <- paste(query_url_a, query_url_b, sep = "?")
+
+  prof_res = getURLContent(query_url_c)
+
+  prof_res <- parseXML(prof_res)
+
+  if(is.list(prof_res)){
+    prof_df <- lapply(prof_res, data.frame)
+    for(i in 1:length(prof_df)){
+      names(prof_df[[i]]) <- "value"
+    }
+    for(i in 1:length(prof_df)){
+      names(prof_df)[i] <- as.character(prof_df[[i]]["food_entry_id", "value"])
+    }
+  }
+
+  if(is.matrix(prof_res)){
+    prof_df <- data.frame(prof_res)
+    names(prof_df) <- "value"
+  }
+  return(prof_df)
+  }
