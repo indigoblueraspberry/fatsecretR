@@ -18,4 +18,5 @@ Parse the \code{http GET} request from \code{XML} into a readable matrix
 \author{
 Tom Wilson \code{tpw2@aber.ac.uk}
 }
+\keyword{internal}
 

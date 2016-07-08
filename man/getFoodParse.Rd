@@ -2,7 +2,7 @@
 % Please edit documentation in R/getFoodParse.R
 \name{getFoodParse}
 \alias{getFoodParse}
-\title{getFoodParse}
+\title{Parse getFood request}
 \usage{
 getFoodParse(URLreq)
 }
@@ -18,4 +18,5 @@ Parse the \code{getFoodID} \code{http GET} request from \code{XML} into a readab
 \author{
 Tom Wilson \code{tpw2@aber.ac.uk}
 }
+\keyword{internal}
 

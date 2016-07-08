@@ -28,4 +28,5 @@ always be required, thus the \code{root} base string can be created independant 
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
+\keyword{internal}
 

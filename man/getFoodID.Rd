@@ -2,7 +2,7 @@
 % Please edit documentation in R/getFoodID.R
 \name{getFoodID}
 \alias{getFoodID}
-\title{Query by Food ID}
+\title{Query database by Food ID}
 \usage{
 getFoodID(food_id)
 }
