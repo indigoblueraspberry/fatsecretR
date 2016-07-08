@@ -7,7 +7,9 @@
 getUserProfile(user_token, user_secret)
 }
 \arguments{
-\item{user_id}{the profile id used during \code{makeProfile}}
+\item{user_token}{the \code{ouath_token} for the user}
+
+\item{user_secret}{the \code{oauth_secret} for the user}
 }
 \value{
 the last recorded weight measure and current height measure

@@ -7,11 +7,11 @@
 getFoodEntryMonth(user_token, user_secret, date)
 }
 \arguments{
+\item{user_token}{the \code{ouath_token} for the user}
+
 \item{user_secret}{the \code{oauth_secret} for the user}
 
 \item{date}{the date to query. The date must be in the format \emph{YYYY-MM-DD}}
-
-\item{user_toker}{the \code{ouath_token} for the user}
 }
 \value{
 a list of two elements

@@ -7,15 +7,14 @@
 getFoodEntry(user_token, user_secret, date)
 }
 \arguments{
+\item{user_token}{the \code{ouath_token} for the user}
+
 \item{user_secret}{the \code{oauth_secret} for the user}
 
 \item{date}{the date to query. The date must be in the format \emph{YYYY-MM-DD}}
-
-\item{user_toker}{the \code{ouath_token} for the user}
 }
 \value{
-if there is only one food entry the result is returned in a \code{data.frame}. If there are multiple
-entries, a list of \code{data.frame's} is returned
+if there is only one food entry the result is returned in a \code{data.frame}. If there are multiple entries, a list of \code{data.frame}'s is returned
 }
 \description{
 Retrieve all food diary entries on a given date for a specified user

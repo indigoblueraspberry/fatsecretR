@@ -7,7 +7,7 @@
 getAuth(user_id)
 }
 \arguments{
-\item{user}{the user_id for the profile to query}
+\item{user_id}{the user_id for the profile to query}
 }
 \value{
 a \code{data.frame} containing the \code{ouath_token} and \code{oauth_secret} for the specified \code{user_id}
