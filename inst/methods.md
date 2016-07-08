@@ -50,7 +50,7 @@ exercises.get | NULL
 API Method         | R Call
 -------------------|-------
 profile.create | makeProfile
-profile.get| getProfile
+profile.get| getProfile / getUserProfile *
 profile.get_auth|getAuth
 profile.request_script_session_key|NULL
 
@@ -59,8 +59,8 @@ API Method         | R Call
 -------------------|-------
 food_entries.copy | NULL
 food_entries.copy_saved_meal| NULL
-food_entries.get|NULL
-food_entries.get_month|NULL
+food_entries.get|getFoodEntry
+food_entries.get_month|getFoodEntryMonth
 food_entry.create|NULL
 food_entry.delete|NULL
 food_entry.edit|NULL
