@@ -19,7 +19,7 @@
 #' }
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 root_base_string3L <- function(CONSUMER_KEY = getOption("CONSUMER_KEY"), url, params)
 {

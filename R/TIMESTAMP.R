@@ -6,7 +6,7 @@
 #' @return the current time and date in number of seconds since \code{January 1, 1970 00:00:00 GMT}
 #'
 #' @author Tom Wilson \email{tpw@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 #' @examples
 #' \dontrun{

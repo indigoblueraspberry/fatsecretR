@@ -1,4 +1,4 @@
-#' Query by Food ID
+#' Query database by Food ID
 #'
 #' Query the FatSecret database for a specific food item using the database ID.
 #'
@@ -14,9 +14,7 @@
 
 getFoodID <- function(food_id)
   {
-  if(!is.numeric(food_id)){
-    stop("...food_id must be numeric", call. = FALSE)
-  }
+  if(!is.numeric(food_id)){stop("...food_id must be numeric", call. = FALSE)}
 
   # make the query root base string (qrbs)
   qrbs <- root_base_string()

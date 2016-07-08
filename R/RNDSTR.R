@@ -7,7 +7,7 @@
 #' @return a random string of length \code{len}
 #'
 #' @author Tom Wislon \email{tpw2@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 #' @examples
 #' \dontrun{

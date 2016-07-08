@@ -6,7 +6,7 @@
 #' @return  a request \code{URL}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 authToken <- function(requestToken)
   {
@@ -14,16 +14,6 @@ authToken <- function(requestToken)
 
   authURL <- paste("http://www.fatsecret.com/oauth/authorize", token, sep = "?")
 
-  if(send == FALSE){
-    return(authURL)
+  return(authURL)
   }
-  if(isTRUE(send)){
-
-
-
-
-
-  }
-
-}
 

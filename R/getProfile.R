@@ -8,16 +8,18 @@
 
 getProfile <- function(user_id)
   {
-  if(!is.character(user_id)){
-    stop("...user_id must be a character string", call. = FALSE)
-  }
+  if(!is.character(user_id)){stop("...user_id must be a character string", call. = FALSE)}
 
   qrbs <- root_base_string()
 
-  tokens <- getAuth(user_id = user_id)
+  #tokens <- getAuth(user_id = user_id)
 
-  options("user_token" = as.character(tokens$value[1]))
-  options("user_secret" = as.character(tokens$value[2]))
+  #options("user_token" = as.character(tokens$value[1]))
+  #options("user_secret" = as.character(tokens$value[2]))
+
+  options("user_token" = as.character("438b3163695e4f2a946bb1be746c1893"))
+  options("user_secret" = as.character("54a4700052d44d02b4510f4c229df0a0"))
+
 
   method <- paste("method", "profile.get", sep = "=")
   search_exp <- paste("oauth_token", getOption("user_token"), sep = "=")

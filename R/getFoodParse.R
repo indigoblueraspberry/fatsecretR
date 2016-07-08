@@ -1,4 +1,4 @@
-#' getFoodParse
+#' Parse getFood request
 #'
 #' Parse the \code{getFoodID} \code{http GET} request from \code{XML} into a readable matrix
 #'
@@ -6,7 +6,7 @@
 #' @return a parsed XML file
 #'
 #' @author Tom Wilson \code{tpw2@@aber.ac.uk}
-#' @export
+#' @keyword internal
 
 getFoodParse <- function(URLreq)
   {

@@ -8,7 +8,7 @@
 #' @return a \code{HMAC SHA1} encoded \code{oauth_signature}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"))
                     {

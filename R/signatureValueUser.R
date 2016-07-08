@@ -10,10 +10,10 @@
 #' @return a \code{HMAC SHA1} encoded \code{oauth_signature}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 signatureValueUser <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"), userSecret)
-{	
+{
 
   SIG_VAL <- paste(SHARED_SECRET,userSecret, sep = "&")
 

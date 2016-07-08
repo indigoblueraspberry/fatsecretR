@@ -7,7 +7,7 @@
 #' @return parsed XML file
 #'
 #' @author Tom Wilson \code{tpw2@@aber.ac.uk}
-#' @export
+#' @keywords internal
 
 parseXML <- function(URLreq)
   {
