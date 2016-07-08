@@ -6,7 +6,7 @@
 #' @return a parsed XML file
 #'
 #' @author Tom Wilson \code{tpw2@@aber.ac.uk}
-#' @keyword internal
+#' @keywords internal
 
 getFoodParse <- function(URLreq)
   {
