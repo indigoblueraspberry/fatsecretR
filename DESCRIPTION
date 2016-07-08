@@ -12,7 +12,7 @@ Depends:
     XML
 Imports:
     httr,
-    mailR
+    plyr
 Suggests:
     testthat,
     knitr,
