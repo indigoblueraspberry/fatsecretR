@@ -2,7 +2,7 @@
 #'
 #' Returns summary daily nutritional information for a user's food diary entries for the month specified.
 #'
-#' @param user_toker the \code{ouath_token} for the user
+#' @param user_token the \code{ouath_token} for the user
 #' @param user_secret the \code{oauth_secret} for the user
 #' @param date the date to query. The date must be in the format \emph{YYYY-MM-DD}
 #' @return a list of two elements

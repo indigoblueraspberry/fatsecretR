@@ -2,7 +2,8 @@
 #'
 #' Retrieve profile information
 #'
-#' @param user_id the profile id used during \code{makeProfile}
+#' @param user_token the \code{ouath_token} for the user
+#' @param user_secret the \code{oauth_secret} for the user
 #' @return the last recorded weight measure and current height measure
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
