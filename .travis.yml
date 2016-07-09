@@ -7,7 +7,7 @@ apt_packages:
 
 r_packages:
  - XML
- - bitops
+ - devtools
  - RCurl
  - httr
  - plyr
