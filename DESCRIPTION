@@ -16,7 +16,8 @@ Imports:
 Suggests:
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    devtools
 License: GPL (>= 3)
 LazyData: TRUE
 RoxygenNote: 5.0.0
