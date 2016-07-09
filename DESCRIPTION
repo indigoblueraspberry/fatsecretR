@@ -8,7 +8,6 @@ Maintainer: Tom Wilson <tpw2@aber.ac.uk>
 Description: R Client for the FatSectet REST API (http://http://
     platform.fatsecret.com/api/)
 Depends:
-    devtools,
     RCurl,
     XML
 Imports:
