@@ -8,6 +8,7 @@ Maintainer: Tom Wilson <tpw2@aber.ac.uk>
 Description: R Client for the FatSectet REST API (http://http://
     platform.fatsecret.com/api/)
 Depends:
+    devtools,
     RCurl,
     XML
 Imports:
@@ -17,8 +18,7 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    devtools
-License: GPL (>= 3)
+    License: GPL (>= 3)
 LazyData: TRUE
 RoxygenNote: 5.0.0
 VignetteBuilder: knitr
