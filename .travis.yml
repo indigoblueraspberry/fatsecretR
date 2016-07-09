@@ -5,9 +5,8 @@ warnings_are_errors: false
 apt_packages:
  - libxml2
 
-r_packages:
+r_binary_packages:
  - XML
- - devtools
  - RCurl
  - httr
  - plyr
