@@ -4,6 +4,10 @@ sudo: required
 warnings_are_errors: false
 apt_packages:
  - libxml2
+ 
+env:
+  global:
+    - CRAN: http://cran.rstudio.com
 
 r_packages:
  - XML
