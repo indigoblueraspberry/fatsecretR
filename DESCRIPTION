@@ -12,7 +12,8 @@ Depends:
     XML
 Imports:
     httr,
-    plyr
+    plyr,
+    bitops
 Suggests:
     testthat,
     knitr,
