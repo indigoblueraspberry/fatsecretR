@@ -3,12 +3,8 @@
 #' Query the FatSecret database for a specific food item using the database ID.
 #'
 #' @param food_id a numeric value which corresponds to a valid FatSecret database entry
-#' @return a list of two elements
-#'  \itemize{
-#'    \item{id} the food descriptor information
-#'    \item{servings} the nutritional breakdown of the food by servings
-#'  }
-#'
+#' @return a matrix of nutritonal information for all of the available serving sizes
+
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
@@ -44,21 +40,19 @@ getFoodID <- function(food_id)
 
   #submit to API
 
-  food_res = getURLContent(query_url_c)
+  food_res <-  getURLContent(query_url_c)
 
-  food_parse <- parseXML(food_res)
+  xml_a <- read_xml(food_res)
+  xml_b <- xml_find_all(xml_a, "//d1:serving")
 
-  food_mat <- t(as.matrix(food_parse))
-  food_df <- data.frame(food_mat)
+  if(length(xml_b) == 0){stop("...Food ID not found", call. = FALSE)}
 
-  food_df$food_url.text <- food_df$servings.serving <- NULL
+  xml_list <- lapply(xml_b, as_list)
+  xml_unlist <- lapply(xml_list, function(x)(lapply(x,unlist)))
+  xml_matrix <-do.call("cbind", xml_unlist)
+  col_names <- as.character(xml_matrix[which(rownames(xml_matrix) == "serving_id"),1:ncol(xml_matrix)])
+  colnames(xml_matrix) <- col_names
+  serving_list <- xml_matrix[-which(rownames(xml_matrix) == "serving_id" | rownames(xml_matrix) == "serving_url"),]
 
-  food_df <- t(food_df)
-
-  nut_val <- getFoodParse(food_res)
-
-  food_list <- list(food_df, nut_val)
-  names(food_list) <- c("id", "servings")
-
-  return(food_list)
+  return(serving_list)
   }
