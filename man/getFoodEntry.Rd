@@ -14,7 +14,7 @@ getFoodEntry(user_token, user_secret, date)
 \item{date}{the date to query. The date must be in the format \emph{YYYY-MM-DD}}
 }
 \value{
-a list of \code{data.frame's}. Each food entry is a separate element in the list; with the following \code{data.frame}
+a list of \code{data.frames}. Each food entry is a separate element in the list; with the following \code{data.frame}
 cotaining the serving size, description information and the nutritional breakdown of the food entry.
 }
 \description{
