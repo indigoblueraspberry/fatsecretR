@@ -5,7 +5,8 @@
 #' @param user_token the \code{ouath_token} for the user
 #' @param user_secret the \code{oauth_secret} for the user
 #' @param date the date to query. The date must be in the format \emph{YYYY-MM-DD}
-#' @return if there is only one food entry the result is returned in a \code{data.frame}. If there are multiple entries, a list of \code{data.frame}'s is returned
+#' @return a list of \code{data.frame's}. Each food entry is a separate element in the list; with the following \code{data.frame}
+#' cotaining the serving size, description information and the nutritional breakdown of the food entry.
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
@@ -42,21 +43,18 @@ getFoodEntry <- function(user_token, user_secret, date)
 
   prof_res = getURLContent(query_url_c)
 
-  prof_res <- parseXML(prof_res)
 
-  if(is.list(prof_res)){
-    prof_df <- lapply(prof_res, data.frame)
-    for(i in 1:length(prof_df)){
-      names(prof_df[[i]]) <- "value"
-    }
-    for(i in 1:length(prof_df)){
-      names(prof_df)[i] <- as.character(prof_df[[i]]["food_entry_id", "value"])
-    }
+  xml_tmp <- read_xml(prof_res)
+  xml_a <- xml_find_all(xml_tmp, "//d1:food_entry")
+  xml_list <- lapply(xml_a, as_list)
+  xml_unlist <- lapply(xml_list, function(x)(lapply(x,unlist)))
+
+  xml_dfs <- lapply(xml_unlist, data.frame)
+  xml_dfs <- lapply(xml_dfs, t)
+
+  for(i in seq_along(xml_dfs)){
+    names(xml_dfs)[i] <- as.character(xml_dfs[[i]]["food_entry_id",])
   }
 
-  if(is.matrix(prof_res)){
-    prof_df <- data.frame(prof_res)
-    names(prof_df) <- "value"
-  }
-  return(prof_df)
+  return(xml_dfs)
   }
