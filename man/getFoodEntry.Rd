@@ -14,7 +14,8 @@ getFoodEntry(user_token, user_secret, date)
 \item{date}{the date to query. The date must be in the format \emph{YYYY-MM-DD}}
 }
 \value{
-if there is only one food entry the result is returned in a \code{data.frame}. If there are multiple entries, a list of \code{data.frame}'s is returned
+a list of \code{data.frame's}. Each food entry is a separate element in the list; with the following \code{data.frame}
+cotaining the serving size, description information and the nutritional breakdown of the food entry.
 }
 \description{
 Retrieve all food diary entries on a given date for a specified user

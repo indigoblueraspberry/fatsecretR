@@ -10,11 +10,7 @@ getFoodID(food_id)
 \item{food_id}{a numeric value which corresponds to a valid FatSecret database entry}
 }
 \value{
-a list of two elements
- \itemize{
-   \item{id} the food descriptor information
-   \item{servings} the nutritional breakdown of the food by servings
- }
+a matrix of nutritonal information for all of the available serving sizes
 }
 \description{
 Query the FatSecret database for a specific food item using the database ID.

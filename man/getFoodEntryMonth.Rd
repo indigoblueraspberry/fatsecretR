@@ -14,11 +14,8 @@ getFoodEntryMonth(user_token, user_secret, date)
 \item{date}{the date to query. The date must be in the format \emph{YYYY-MM-DD}}
 }
 \value{
-a list of two elements
- \itemize{
-   \item {dates} the start and end date of the search
-   \item {summary} a \code{data.frame} summary of nutritional intake for the month
- }
+a \code{data.frame} with calories, carbohydrate, protein and fat for each day in the month that there has
+been a food entry
 }
 \description{
 Returns summary daily nutritional information for a user's food diary entries for the month specified.
