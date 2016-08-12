@@ -4,7 +4,7 @@
 #'
 #' @param user_token the \code{ouath_token} for the user
 #' @param user_secret the \code{oauth_secret} for the user
-#' @return the last recorded weight measure and current height measure
+#' @return a \code{data.frame} containing values for current weight and height measurments
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
@@ -35,18 +35,24 @@ getUserProfile <- function(user_token, user_secret)
 
   prof_res = getURLContent(query_url_c)
 
-  prof_res <- parseXML(prof_res)
+  xml_tmp <- read_xml(prof_res)
 
-  df <- data.frame(prof_res)
+  xml_node <- xml_find_all(xml_tmp, "//d1:profile")
 
-  last_weight <- paste(df$prof_res[3], df$prof_res[1], sep = " ")
-  height <- paste(df$prof_res[6], df$prof_res[2], sep = " ")
+  xml_a <- xml_children(xml_node)
 
-  df_names <- c("last_weight", "current_height")
-  df_value <- c(last_weight, height)
-  prof_df <- data.frame(cbind(df_names,df_value))
+  xml_list <- as_list(xml_a)
 
-  return(prof_df)
+  xml_df <- data.frame(matrix(nrow = length(xml_list), ncol = 2))
+
+  for(i in seq_along(xml_list)){
+    xml_df[i,1] <- xml_name(xml_list[[i]])
+    xml_df[i,2] <- xml_text(xml_list[[i]])
+    }
+
+  colnames(xml_df) <- c("name", "value")
+
+  return(xml_df)
   }
 
 

@@ -5,11 +5,8 @@
 #' @param user_token the \code{ouath_token} for the user
 #' @param user_secret the \code{oauth_secret} for the user
 #' @param date the date to query. The date must be in the format \emph{YYYY-MM-DD}
-#' @return a list of two elements
-#'  \itemize{
-#'    \item {dates} the start and end date of the search
-#'    \item {summary} a \code{data.frame} summary of nutritional intake for the month
-#'  }
+#' @return a \code{data.frame} with calories, carbohydrate, protein and fat for each day in the month that there has
+#' been a food entry
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
@@ -45,23 +42,31 @@ getFoodEntryMonth <- function(user_token, user_secret, date)
   query_url_c <- paste(query_url_a, query_url_b, sep = "?")
 
   prof_res = getURLContent(query_url_c)
+  xml_tmp <- read_xml(prof_res)
+  xml_a <- xml_find_all(xml_tmp, "//d1:day")
+  xml_list <- lapply(xml_a, as_list)
 
-  prof_res <- parseXML(prof_res)
+  monthly_df <- data.frame(matrix(nrow = length(xml_list), ncol = 5))
 
-  start_date <- as.numeric(prof_res$from_date_int)
-  end_date <- as.numeric(prof_res$to_date_int)
+  names(monthly_df) <- c("date", "calories", "carbohydrate", "protein", "fat")
 
-  prof_tmp <- prof_res
-  prof_tmp$from_date_int <- NULL
-  prof_tmp$to_date_int <- NULL
-
-  res_day <- plyr::ldply(prof_tmp, id = date_int)
-  res_day$.id <- NULL
-
-  res_all <- list()
-  res_all$dates <- c(start_date,end_date)
-  res_all$summary <- res_day
-  return(res_all)
+  for(i in seq_along(xml_list)){
+    monthly_df[i,"date"] <- as.numeric(xml_list[[i]][["date_int"]][[1]])
+    monthly_df[i,"calories"] <- as.numeric(xml_list[[i]][["calories"]][[1]])
+    monthly_df[i,"carbohydrate"] <- as.numeric(xml_list[[i]][["carbohydrate"]][[1]])
+    monthly_df[i,"protein"] <- as.numeric(xml_list[[i]][["protein"]][[1]])
+    monthly_df[i,"fat"] <- as.numeric(xml_list[[i]][["fat"]][[1]])
   }
 
+  monthly_total <- apply(monthly_df,2,sum)
 
+  for(i in seq_along(monthly_df$date)){
+    new_date <- POSIXdays_to_date(monthly_df$date[i])
+    monthly_df$date[i] <- gsub(monthly_df$date[i], new_date, monthly_df$date[i])
+  }
+
+  monthly_total["date"] <- "total"
+  monthly_df <- rbind(monthly_df,monthly_total)
+
+  return(monthly_df)
+  }

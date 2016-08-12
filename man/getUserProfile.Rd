@@ -12,7 +12,7 @@ getUserProfile(user_token, user_secret)
 \item{user_secret}{the \code{oauth_secret} for the user}
 }
 \value{
-the last recorded weight measure and current height measure
+a \code{data.frame} containing values for current weight and height measurments
 }
 \description{
 Retrieve profile information

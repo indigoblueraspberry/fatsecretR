@@ -5,7 +5,7 @@
 #' then tokens can be retrieved at any time using \code{getAuth}
 #'
 #' @param user_id a unique identifier for the new profile
-#' @return the user token and access secret for the new profile
+#' @return a \code{data.frame} cotnaining the user token and access secret for the created profile
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
@@ -42,11 +42,14 @@ makeProfile <- function(user_id)
 
   profile_res <-  getURLContent(query_url_c)
 
-  profile_res2 <- parseXML(profile_res)
+  xml_tmp <- read_xml(profile_res)
+  xml_list <- as_list(xml_children(xml_tmp))
 
-  profile_res3 <- data.frame(profile_res2)
-  names(profile_res3) <- "value"
-  rownames(profile_res3) <- c("token", "secret")
+  prof_name <- lapply(xml_list, xml_name)
+  prof_value <- lapply(xml_list, xml_text)
 
-  return(profile_res3)
+  prof_df <- data.frame(name = unlist(prof_name), value = unlist(prof_value))
+  prof_df[,"name"] <- gsub("auth_", "", prof_df[,"name"])
+
+  return(prof_df)
   }

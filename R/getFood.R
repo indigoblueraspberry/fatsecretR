@@ -46,35 +46,30 @@ getFood <- function(food)
 
   #submit to API
   food_res = getURLContent(query_url_c)
-  food_parse <- parseXML(food_res)
 
-  idx <- which(names(food_parse) == "food")
+  xml_a <- read_xml(food_res)
 
-  food_list <- food_parse[idx]
+  xml_b <- xml_find_all(xml_a, "//d1:food")
 
-  food_list <- lapply(food_list, t)
-  food_list <- lapply(food_list, data.frame)
+  xml_list <- lapply(xml_b, as_list)
 
-  food_matrix <- data.frame(matrix(nrow = length(food_list), ncol = 4))
-  for(i in 1:length(food_list)){
-    food_matrix[i,1] <- as.character(food_list[[i]]$food_id)
-    food_matrix[i,2] <- as.character(food_list[[i]]$food_name)
-    food_matrix[i,3] <- as.character(food_list[[i]]$food_type)
-    if(food_matrix[i,3] == "Brand"){
-        food_matrix[i,4] <- as.character(food_list[[i]]$brand_name)
+  food_df <- data.frame(matrix(nrow = length(xml_list), ncol = 4))
+  names(food_df) <- c("id", "name", "type", "brand")
+
+  for(i in seq_along(xml_list)){
+    food_df[i,"id"] <- xml_list[[i]][["food_id"]]
+    food_df[i,"name"] <- xml_list[[i]][["food_name"]]
+    food_df[i,"type"] <- xml_list[[i]][["food_type"]]
+
+    if(food_df[i,"type"] == "Generic"){
+      food_df[i,"brand"] <- "NA"}
+    if(food_df[i,"type"] == "Brand"){
+      food_df[i,"brand"] <- xml_list[[i]][["brand_name"]]
     }
   }
-  colnames(food_matrix) <- c("ID", "Name", "Type", "Brand")
+  if(nrow(food_df) == 0){stop("...no results for search", call. = FALSE)}
 
-  return(food_matrix)
+  if(nrow(food_df) >= 1){
+    return(food_df)
   }
-
-
-
-
-
-
-
-
-
-
+}

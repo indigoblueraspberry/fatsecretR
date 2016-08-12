@@ -6,7 +6,7 @@
 #' @return  a request \code{URL}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @keywords internal
+#' @export
 
 authToken <- function(requestToken)
   {

@@ -9,10 +9,9 @@ Description: R Client for the FatSectet REST API (http://http://
     platform.fatsecret.com/api/)
 Depends:
     RCurl,
-    XML
+    xml2
 Imports:
     httr,
-    plyr
 Suggests:
     testthat,
     knitr,
