@@ -10,9 +10,7 @@
 
 getAuth <- function(user_id)
   {
-  if(!is.character(user_id)){
-    stop("...user_id must be a character string", call. = FALSE)
-  }
+  if(!is.character(user_id)){stop("...user_id must be a character string", call. = FALSE)}
   qrbs <- root_base_string()
 
   method <- paste("method", "profile.get_auth", sep = "=")
@@ -39,10 +37,18 @@ getAuth <- function(user_id)
 
   qu_res <-  getURLContent(query_url_c)
 
-  qu_res2 <- parseXML(qu_res)
-  qu_res2 <- data.frame(qu_res2)
-  names(qu_res2) <- "value"
-  rownames(qu_res2) <- c("token", "secret")
+  xml_tmp <- read_xml(qu_res)
+  xml_list <- as_list(xml_children(xml_tmp))
 
-  return(qu_res2)
+  qu_name <- lapply(xml_list, xml_name)
+  qu_value <- lapply(xml_list, xml_text)
+
+  qu_df <- data.frame(name = unlist(qu_name), value = unlist(qu_value))
+  qu_df[,"name"] <- as.character(qu_df[,"name"])
+  qu_df[,"value"] <- as.character(qu_df[,"value"])
+
+  qu_df[,"name"] <- gsub("auth_", "", prof_df[,"name"])
+  qu_df[,"name"] <- paste("oath", qu_df[,"name"], sep = "_")
+
+  return(qu_df)
   }
