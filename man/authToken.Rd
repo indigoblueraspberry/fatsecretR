@@ -18,5 +18,4 @@ Generate the \code{URL} for User Authorization
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-\keyword{internal}
 

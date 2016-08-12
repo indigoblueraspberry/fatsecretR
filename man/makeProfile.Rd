@@ -10,7 +10,7 @@ makeProfile(user_id)
 \item{user_id}{a unique identifier for the new profile}
 }
 \value{
-the user token and access secret for the new profile
+a \code{data.frame} cotnaining the user token and access secret for the created profile
 }
 \description{
 Create a user profile which a specific user ID and retrieve the \code{oauth_token} and \code{access_secret}
