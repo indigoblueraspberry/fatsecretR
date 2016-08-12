@@ -56,5 +56,29 @@ getFoodEntry <- function(user_token, user_secret, date)
     names(xml_dfs)[i] <- as.character(xml_dfs[[i]]["food_entry_id",])
   }
 
+  if(length(xml_dfs) ==1 ){
+    xml_dfs <- data.frame(xml_dfs)
+    xml_dfs[,1] <- as.character(xml_dfs[,1])
+    names(xml_dfs) <- gsub("X", "", names(xml_dfs))
+    new_date <- POSIXdays_to_date(as.numeric(xml_dfs["date_int",1]))
+    xml_dfs["date_int",1] <- gsub(xml_dfs["date_int",1], new_date, xml_dfs["date_int",1])
+  }
+
+  if(length(xml_dfs) > 1){
+
+    new_dates <- NULL
+    for(i in seq_along(xml_dfs)){
+      new_dates[[i]] <- POSIXdays_to_date(as.numeric(xml_dfs[[i]]["date_int",][[1]]))
+    }
+
+    new_dates <- as.character(lapply(xml_dfs, function(x){
+      POSIXdays_to_date(as.numeric(x["date_int",][[1]]))
+    }))
+
+    for(i in seq_along(xml_dfs)){
+      xml_dfs[[i]][["date_int",1]] <- gsub(xml_dfs[[i]][["date_int",1]], new_dates[i], xml_dfs[[i]][["date_int",1]])
+    }
+  }
+
   return(xml_dfs)
   }

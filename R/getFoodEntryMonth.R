@@ -59,6 +59,12 @@ getFoodEntryMonth <- function(user_token, user_secret, date)
   }
 
   monthly_total <- apply(monthly_df,2,sum)
+
+  for(i in seq_along(monthly_df$date)){
+    new_date <- POSIXdays_to_date(monthly_df$date[i])
+    monthly_df$date[i] <- gsub(monthly_df$date[i], new_date, monthly_df$date[i])
+  }
+
   monthly_total["date"] <- "total"
   monthly_df <- rbind(monthly_df,monthly_total)
 

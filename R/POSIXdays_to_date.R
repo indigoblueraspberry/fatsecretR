@@ -15,7 +15,7 @@ POSIXdays_to_date <- function(x)
 
   posix_time <- as.POSIXct(x * (24 * 60 * 60), origin = "1970-01-01", tz = "GMT")
 
-  string_date <- as.Date(posix_time)
+  string_date <- as.character(as.Date(posix_time))
 
   return(string_date)
   }
