@@ -12,6 +12,7 @@ Depends:
     xml2
 Imports:
     httr,
+    bitops
 Suggests:
     testthat,
     knitr,

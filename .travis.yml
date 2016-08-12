@@ -4,10 +4,13 @@ sudo: required
 warnings_are_errors: false
 apt_packages:
  - libxml2
+ 
+env:
+  global:
+    - CRAN: http://cran.rstudio.com
 
-r_binary_packages:
+r_packages:
  - XML
- - bitops
  - RCurl
  - httr
  - plyr
