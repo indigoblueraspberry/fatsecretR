@@ -23,6 +23,8 @@ getFood <- function(food)
   # query string
   method <- paste("method", "foods.search", sep = "=")
   search_exp <- paste("search_expression", food, sep = "=")
+#  max_results <- paste("max_results", 50, sep = "=")
+
 
 
   # build entire query string
