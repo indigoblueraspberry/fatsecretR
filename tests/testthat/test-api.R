@@ -2,9 +2,9 @@ context("api")
 
 test_that("api",
           {
-          consumer_key <- readRDS("token.rds")
+          consumer_key <- readRDS("../../token.rds")
           options(CONSUMER_KEY = consumer_key)
-          secret <- readRDS("secret.rds")
+          secret <- readRDS("../../secret.rds")
           options(SHARED_SECRET = secret)
 
           expect_error(getFoodID("beer"))
