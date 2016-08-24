@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 inst/doc
-tests/testthat/secret.rds
-tests/testthat/token.rds
-tests/testthat/tokens.tar
+secret.rds
+token.rds
+
