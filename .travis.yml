@@ -18,5 +18,5 @@ notifications:
     on_success: change
     on_failure: change
 before_install:
-- openssl aes-256-cbc -K $encrypted_0646e44e9c21_key -iv $encrypted_0646e44e9c21_iv -in tests/testthat/tokens.tar.enc -out tests/testthat/tokens.tar -d
+- openssl aes-256-cbc -K $encrypted_7719d0814fcd_key -iv $encrypted_7719d0814fcd_iv -in tests/testthat/tokens.tar.enc -out tests/testthat/tokens.tar -d
 - tar xvf tests/testthat/tokens.tar
