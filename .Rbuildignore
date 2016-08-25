@@ -2,5 +2,6 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^appveyor\.yml$
-token.rds.enc
-secret.rds.enc
+tests/testthat/tokens.rds.enc
+tests/testthat/av_tokens.rda.enc
+^secure-file/*$

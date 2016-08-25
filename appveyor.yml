@@ -8,11 +8,17 @@ init:
         Import-Module '..\appveyor-tool.ps1'
 
 install:
-  ps: Bootstrap
+  - nuget install secure-file -ExcludeVersion
+  - secure-file\tools\secure-file -decrypt tests/testthat/av_tokens.rda.enc -secret %my_secret% -out tests/testthat/tokens.rda
+  - ps: Bootstrap
 
 # Adapt as necessary starting from here
 
+
 environment:
+  my_variable:
+    secure: 7J3gC4ZkC4xpPh/v5bA2kg==
+
   matrix:
     - R_VERSION: stable
       R_ARCH: x64
