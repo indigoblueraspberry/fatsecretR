@@ -2,9 +2,8 @@ context("api")
 
 test_that("api",
           {
-          consumer_key <- readRDS("token.rds")
-          options(CONSUMER_KEY = consumer_key)
-          secret <- readRDS("secret.rds")
+          load("tokens.rda")
+          options(CONSUMER_KEY = token)
           options(SHARED_SECRET = secret)
 
           expect_error(getFoodID("beer"))
@@ -15,7 +14,7 @@ test_that("api",
           expect_error(getFood("bber"))
 
           expect_true(is.data.frame(getFood("beer")))
-         # expect_true(is.data.frame(getFoodID(7682)))
+          expect_true(is.matrix(getFoodID(7682)))
 
 
           }
