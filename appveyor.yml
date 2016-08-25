@@ -16,7 +16,7 @@ install:
 
 
 environment:
-  my_variable:
+  my_secret:
     secure: 7J3gC4ZkC4xpPh/v5bA2kg==
 
   matrix:
