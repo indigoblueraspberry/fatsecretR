@@ -2,25 +2,24 @@
 % Please edit documentation in R/makeRequest.R
 \name{makeRequest}
 \alias{makeRequest}
-\title{Get Request Token (3 Legged - Step 1)}
+\title{Make Authorisation Request (3LeggedAuth - Step 1)}
 \usage{
-makeRequest(callback)
+makeRequest(callback = "oob")
 }
 \arguments{
-\item{callback}{a charatcer string for the `oauth_callback`. If unable to recieve a callback, then `callback` must be
-set to `oob`, otherwise `callback` should equal the absolute url of your callback}
+\item{callback}{a charatcer string for the `oauth_callback`. If unable to recieve a callback, then \code{callback} must be
+set to \emph{oob}, otherwise \code{callback} should equal the absolute url (\code{protocol://domain/path}) of your callback}
 }
 \value{
-a \code{data.frame} containing the following four values;
+a list of two elements
  \itemize{
-   \item callback
-   \item request_token
-   \item token_secret
-   \item request_url
+   \item {tokens} a vector containing the \code{oauth_token}(request_token) and the \code{oauth_secret}(request _secret) of the authorisation request
+   \item {authorisation_url} a character string of the Authorisaton URL which should be forward to a user in order to grant authorisation
  }
 }
 \description{
-Retrive the \code{ouath_token} and \code{oauth_secret} from Step 1 of 3 Legged OAuth1.0 Authentication
+Retrive the \code{ouath_token} and \code{oauth_secret} from Step 1 of 3 Legged OAuth1.0 Authentication and create a \code{Authorisation URL} which can
+be forwarded to a active user.
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
