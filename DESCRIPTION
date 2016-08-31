@@ -1,12 +1,11 @@
 Package: fatsecretR
 Type: Package
-Title: R Client for the FatSectet REST API
+Title: R Interface for the FatSectet REST API
 Version: 0.1.0
 Date: 2016-01-06
 Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
-Description: R Client for the FatSectet REST API (http://http://
-    platform.fatsecret.com/api/)
+Description: R Interface for the FatSectet REST API (http://http://platform.fatsecret.com/api/)
 Depends:
     RCurl,
     xml2
