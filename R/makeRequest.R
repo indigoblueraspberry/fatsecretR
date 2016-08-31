@@ -1,38 +1,56 @@
-#' Get Request Token (3 Legged - Step 1)
+#' Make Authorisation Request (3LeggedAuth - Step 1)
 #'
-#' Retrive the \code{ouath_token} and \code{oauth_secret} from Step 1 of 3 Legged OAuth1.0 Authentication
+#' Retrive the \code{ouath_token} and \code{oauth_secret} from Step 1 of 3 Legged OAuth1.0 Authentication and create a \code{Authorisation URL} which can
+#' be forwarded to a active user.
 #'
-#' @param callback a charatcer string for the `oauth_callback`. If unable to recieve a callback, then `callback` must be
-#' set to `oob`, otherwise `callback` should equal the absolute url of your callback
-#' @return a \code{data.frame} containing the following four values;
+#' @param callback a charatcer string for the `oauth_callback`. If unable to recieve a callback, then \code{callback} must be
+#' set to \emph{oob}, otherwise \code{callback} should equal the absolute url (\code{protocol://domain/path}) of your callback
+#' @return a list of two elements
 #'  \itemize{
-#'    \item callback
-#'    \item request_token
-#'    \item token_secret
-#'    \item request_url
+#'    \item {tokens} a vector containing the \code{oauth_token}(request_token) and the \code{oauth_secret}(request _secret) of the authorisation request
+#'    \item {authorisation_url} a character string of the Authorisaton URL which should be forward to a user in order to grant authorisation
 #'  }
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
+#'
+#' @importFrom Rcurl curlEscape getURLContent
+#'
 
-makeRequest <- function(callback)
+makeRequest <- function(callback = "oob")
   {
+
+  qrbs <- root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/request_token",
+                             params = paste("oauth_callback", callback, sep = "="))
 
 
   if(callback == "oob"){
-
-    qrbs <- root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/request_token",
-                             params = paste("oauth_callback", "oob", sep = "="))
-
-    }
-
   query_string <- paste(qrbs$params,qrbs$con_key,qrbs$nonce,qrbs$sig_meth,
                         qrbs$time_stamp,qrbs$version, sep = "&")
 
   en_query_string <- URLencode(query_string, reserved = TRUE)
+  }
+
+  if(callback != "oob"){
+
+    if(url.exists(callback) == FALSE){
+      stop("...the callback URL does not exisit, please supply a valid absolute URL", call. = FALSE)
+    }
+
+    query_string2 <- paste(qrbs$con_key,qrbs$nonce,qrbs$sig_meth,
+                          qrbs$time_stamp,qrbs$version, sep = "&")
+
+    query_string <- paste(qrbs$params,qrbs$con_key,qrbs$nonce,qrbs$sig_meth,
+                           qrbs$time_stamp,qrbs$version, sep = "&")
+
+    en_query_string <- URLencode(query_string2, reserved = TRUE)
+
+    # escape the encoded callback url
+    callback_url <- curlEscape(URLencode(callback, reserved = TRUE))
+    oauth_callback <- paste("oauth_callback", callback_url, sep = "%3D")
+    en_query_string  <- paste(oauth_callback, en_query_string, sep = "%26")
+  }
 
   SIG_BASE_STR <- paste(qrbs$url, en_query_string, sep = "&")
-
-  # now make signature value
 
   signature <- signatureValue(SIG_BASE_STR)
 
@@ -57,15 +75,8 @@ makeRequest <- function(callback)
   response <- data.frame(response)
   rownames(response) <- response[,1]
   response[,1] <- NULL
-  names(response) <- "value"
-  response$value <- as.character(response$value)
-  token <- paste("oauth_token", response["oauth_token",], sep = "=")
 
-  authURL <- paste("http://www.fatsecret.com/oauth/authorize", token, sep = "?")
-
-  response[4,1] <- NA
-  response[4,1] <- authURL
-  rownames(response) <- c("callback", "request_token", "token_secret", "request_url")
+  response_list <- list(tokens = c(request_token = as.character(response[2,2]), request_secret = as.character(response[3,2])), authorisation_url = authURL)
 
   return(response)
   }
