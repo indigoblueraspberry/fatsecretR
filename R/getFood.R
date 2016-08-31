@@ -17,34 +17,36 @@ getFood <- function(food)
   }
 
   # make the query root base string (qrbs)
-  qrbs <- root_base_string()
+  qrbs <- fatsecretR:::root_base_string()
 
 
   # query string
   method <- paste("method", "foods.search", sep = "=")
-  search_exp <- paste("search_expression", food, sep = "=")
-#  max_results <- paste("max_results", 50, sep = "=")
 
-
-
-  # build entire query string
-  query_string <- paste(method,qrbs$con_key,
+  query_string2 <- paste(method,qrbs$con_key,
                         qrbs$nonce, qrbs$sig_meth, qrbs$time_stamp,
-                        qrbs$version, search_exp,sep = "&")
+                        qrbs$version,sep = "&")
 
+  food_item <- URLencode(food, reserved = TRUE)
+  food_esc <- curlEscape(food_item)
+  search_exp <- paste("search_expression", food_esc, sep = "%3D")
 
-  en_query_string <- URLencode(query_string, reserved = TRUE)
+  en_query_string <- URLencode(query_string2, reserved = TRUE)
+
+  en_query_string <- paste(en_query_string, search_exp, sep = "%26")
 
   SIG_BASE_STR <- paste(qrbs$url, en_query_string, sep = "&")
 
-  # now make signature value
+  food_param <- paste("search_expression", food_item, sep = "=")
+  query_string <- paste(food_param,method,qrbs$con_key,
+                        qrbs$nonce, qrbs$sig_meth, qrbs$time_stamp,
+                        qrbs$version,sep = "&")
 
-  signature <- signatureValue(SIG_BASE_STR)
+  signature <- fatsecretR:::signatureValue(SIG_BASE_STR)
 
   query_url_a <- gsub("GET&", "",URLdecode(qrbs$url))
   query_url_b <- paste(query_string, signature, sep = "&")
   query_url_c <- paste(query_url_a, query_url_b, sep = "?")
-
 
   #submit to API
   food_res = getURLContent(query_url_c)
