@@ -8,8 +8,7 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
-#'
-#' @importFrom xml2 read_xml xml_find_all xml_list
+#' @importFrom xml2 read_xml xml_find_all
 #'
 
 

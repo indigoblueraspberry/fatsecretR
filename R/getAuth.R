@@ -7,6 +7,7 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
+#' @importFrom xml2 read_xml as_list xml_name xml_text xml_children
 
 getAuth <- function(user_id)
   {
@@ -47,7 +48,7 @@ getAuth <- function(user_id)
   qu_df[,"name"] <- as.character(qu_df[,"name"])
   qu_df[,"value"] <- as.character(qu_df[,"value"])
 
-  qu_df[,"name"] <- gsub("auth_", "", prof_df[,"name"])
+  qu_df[,"name"] <- gsub("auth_", "", qu_df[,"name"])
   qu_df[,"name"] <- paste("oath", qu_df[,"name"], sep = "_")
 
   return(qu_df)

@@ -10,6 +10,7 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
+#' @importFrom xml2 read_xml xml_find_all
 
 getFoodEntry <- function(user_token, user_secret, date)
   {
