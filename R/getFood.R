@@ -9,7 +9,7 @@
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 #' @importFrom xml2 read_xml xml_find_all
-#'
+#' @importFrom utils URLdecode URLencode
 
 
 getFood <- function(food)
