@@ -18,6 +18,8 @@
 
 RNDSTR <- function(len)
   {
+  if(!is.numeric(len)){stop("...length parameter must be numeric", call. = FALSE)}
+
   rand_str <- paste(sample(c(0:9, letters, LETTERS),len, replace=TRUE),collapse="")
   return(rand_str)
   }
