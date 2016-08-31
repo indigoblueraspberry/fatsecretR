@@ -9,6 +9,7 @@
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @keywords internal
+#'
 
 signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRET"))
                     {
@@ -18,9 +19,9 @@ signatureValue <- function(SIG_BASE_STR, SHARED_SECRET = getOption("SHARED_SECRE
   SIG_VAL_EN <- httr::hmac_sha1(SIG_VAL, SIG_BASE_STR)
 
   ## escape the encoded signature value using RFC 3986
-  SIG_VAL_EN2 <- URLencode(SIG_VAL_EN, reserved = TRUE)
+  SIG_VAL_EN <- URLencode(SIG_VAL_EN, reserved = TRUE)
 
-  oauth_signature <- paste("oauth_signature", SIG_VAL_EN2, sep = "=")
+  oauth_signature <- paste("oauth_signature", SIG_VAL_EN, sep = "=")
 
   return(oauth_signature)
 
