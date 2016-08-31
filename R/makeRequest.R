@@ -75,8 +75,8 @@ makeRequest <- function(callback = "oob")
   rownames(response) <- response[,1]
   response[,1] <- NULL
 
-  authURL <- paste("http://www.fatsecret.com/oauth/authorize", as.character(response[2,2]), sep = "?")
-  response_list <- list(tokens = c(request_token = as.character(response[2,2]), request_secret = as.character(response[3,2])), authorisation_url = authURL)
+  authURL <- paste("http://www.fatsecret.com/oauth/authorize", as.character(response[2,1]), sep = "?")
+  response_list <- list(tokens = c(request_token = as.character(response[2,1]), request_secret = as.character(response[3,1])), authorisation_url = authURL)
 
-  return(response)
+  return(response_list)
   }
