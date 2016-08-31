@@ -13,9 +13,12 @@ test_that("api",
 
           expect_error(getFood("bber"))
 
-          expect_true(is.data.frame(getFood("beer")))
+          expect_true(is.data.frame(getFood("beans")))
+          expect_true(is.data.frame(getFood("baked beans")))
           expect_true(is.matrix(getFoodID(7682)))
 
+          req_list <- makeRequest(callback = "oob")
+          expect_true(is.list(req_list))
 
           }
 )
