@@ -18,7 +18,7 @@
 makeRequest <- function(callback = "oob")
   {
 
-  qrbs <- fatsecretR:::root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/request_token",
+  qrbs <- root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/request_token",
                              params = paste("oauth_callback", callback, sep = "="))
 
 
@@ -51,7 +51,7 @@ makeRequest <- function(callback = "oob")
 
   SIG_BASE_STR <- paste(qrbs$url, en_query_string, sep = "&")
 
-  signature <- fatsecretR:::signatureValue(SIG_BASE_STR)
+  signature <- signatureValue(SIG_BASE_STR)
 
   query_url_a <- gsub("GET&", "",URLdecode(qrbs$url))
   query_url_b <- paste(query_string, signature, sep = "&")

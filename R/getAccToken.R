@@ -12,6 +12,9 @@
 
 getAccToken <- function(verifierCode, userToken, tokenSecret)
   {
+
+  if(!is.numeric(verifierCode)){stop("...verifierCode must be numeric", call. = FALSE)}
+
   qrbs <- root_base_string3L(CONSUMER_KEY = getOption("CONSUMER_KEY"), url = "http://www.fatsecret.com/oauth/access_token",
                              params = c(paste("oauth_verifier", verifierCode, sep = "="),paste("oauth_token", userToken, sep 						= "=") ))
 
