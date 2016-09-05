@@ -19,6 +19,7 @@ test_that("api",
 
           req_list <- makeRequest(callback = "oob")
           expect_true(is.list(req_list))
+          expect_true(url.exists(req_list$authorisation_url))
 
           }
 )
