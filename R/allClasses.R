@@ -12,6 +12,7 @@
 setClass(Class = "fatsecret", representation = representation(
         ConsumerKey = "character",
         SharedSecret = "character",
+        oauthConsumer = "character",
         RESTURL = "character",
         httpMethod = "character",
         signatureMethod = "character",
