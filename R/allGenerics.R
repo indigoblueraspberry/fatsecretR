@@ -51,16 +51,21 @@ setGeneric(name = "RequestAuthorisation",
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-
-
-
-
 setGeneric(name = "APIkeys",
            def = function(object, ConsumerKey, SharedSecret)
            {standardGeneric("APIkeys")}
 )
 
 
+#' fatsecretR REST API
+#' @rdname fatsecretRmethod
+#' @param object a \code{fatsecret} object
+#' @param method a character specifying a REST API method
+#' @param params a character specifying parameters which correspond to the selected methpd
+#' @return a \code{data.frame}
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
 
 setGeneric(name = "fatsecretR",
            def = function(object,method,params)
