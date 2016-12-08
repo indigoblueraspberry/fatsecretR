@@ -1,7 +1,7 @@
 Package: fatsecretR
 Type: Package
 Title: R Interface to the FatSecret REST API
-Version: 0.1.0
+Version: 0.0.99
 Date: 2016-01-06
 Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
@@ -9,7 +9,6 @@ Description: R Interface to the FatSectet REST API (http://http://
     platform.fatsecret.com/api/).
 Depends:
     RCurl,
-    xml2
 Imports:
     httr,
     bitops
@@ -21,3 +20,13 @@ License: GPL (>= 3)
 LazyData: TRUE
 RoxygenNote: 5.0.0
 VignetteBuilder: knitr
+Collate:
+    'AuthSignature.R'
+    'allClasses.R'
+    'allGenerics.R'
+    'OauthNonce-method.R'
+    'RequestAuthorisation-method.R'
+    'TimeStamp-method.R'
+    'fatsecretR-method.R'
+    'newAuth.R'
+    'zzz.R'
