@@ -1,5 +1,5 @@
 ###  API Method Reference
----
+
 All the available API methods are grouped into nine categories.
 
 Below are all the available methods organised into the relevant categories. The corresponding `R Call` is the available function in `fatsecretR` which matches the API method. Where `R Call` is `NULL`, this indicates that the API method has not yet been implemented in `fatsecretR`.

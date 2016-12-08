@@ -4,3 +4,5 @@
 inst/doc
 tests/testthat/tokens.rda
 TODO.md
+vignettes/
+R/scratch/

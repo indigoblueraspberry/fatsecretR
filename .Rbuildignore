@@ -7,3 +7,4 @@ tests/testthat/av_tokens.rda.enc
 ^secure-file/*$
 NOTES.md
 TODO.md
+R/scratch
