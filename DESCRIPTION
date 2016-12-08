@@ -22,9 +22,10 @@ LazyData: TRUE
 RoxygenNote: 5.0.0
 VignetteBuilder: knitr
 Collate:
-    'AuthSignature.R'
     'allClasses.R'
     'allGenerics.R'
+    'APIkeys-method.R'
+    'AuthSignature.R'
     'OauthNonce-method.R'
     'RequestAuthorisation-method.R'
     'TimeStamp-method.R'
