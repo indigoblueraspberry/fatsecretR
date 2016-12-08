@@ -29,6 +29,7 @@ setClass(Class = "fatsecret", representation = representation(
 setClass(Class = "fatsecret3L", representation = representation(
         ConsumerKey = "character",
         SharedSecret = "character",
+        oauthConsumer = "character",
         RequestURL = "character",
         AccessURL = "character",
         AuthURL = "character",
