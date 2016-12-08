@@ -1,5 +1,10 @@
-
-
+#' fatsecretR REST API
+#' @rdname fatsecretRmethod
+#'
+#' @description Main worker method for all REST API calls
+#'
+#' @include allGenerics.R
+#' @include allClasses.R
 
 setMethod(f = "fatsecretR", signature = "fatsecret",
           function(object, method, params){
@@ -42,7 +47,6 @@ setMethod(f = "fatsecretR", signature = "fatsecret",
             baseURL <- gsub(paste0("%26", oauth_param),"", baseURL)
             baseURL <- gsub(paste0(oauth_param,"%26"),"", baseURL)
 
-            #URLdecode(oauth_param)
             param_final <- paste0(oauth_param_holder, "=", strsplit(oauth_param, "%3D")[[1]][2])
 
             requestURL <- paste0(
