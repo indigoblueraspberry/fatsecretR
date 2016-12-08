@@ -22,7 +22,7 @@ setMethod(f = "RequestAuthorisation", signature = "fatsecret3L",
 
             # query string list
 
-            query_list <- c(object@ConsumerKey,
+            query_list <- c(object@oauthConsumer,
                             object@nonce, object@signatureMethod,
                             object@timestamp, object@oauthVersion,
                             oauth_param_holder)
