@@ -9,6 +9,7 @@ Description: R Interface to the FatSectet REST API (http://http://
     platform.fatsecret.com/api/).
 Depends:
     RCurl,
+    methods
 Imports:
     httr,
     bitops
