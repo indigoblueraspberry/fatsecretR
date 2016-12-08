@@ -4,11 +4,14 @@
 \name{OauthNonce}
 \alias{OauthNonce}
 \alias{OauthNonce,fatsecret-method}
+\alias{OauthNonce,fatsecret3L-method}
 \title{oauth_nonce}
 \usage{
 OauthNonce(object)
 
 \S4method{OauthNonce}{fatsecret}(object)
+
+\S4method{OauthNonce}{fatsecret3L}(object)
 }
 \arguments{
 \item{object}{a \code{fatsecret} or \code{fatsecret3L} object}
@@ -18,6 +21,9 @@ a \code{fatsecret} or \code{fatsecret3L} object
 }
 \description{
 oauth_nonce
+
+Assign a \code{oauth_nonce} parameter to the current \code{fatsecret} or \code{fatsecret3L}
+object
 
 Assign a \code{oauth_nonce} parameter to the current \code{fatsecret} or \code{fatsecret3L}
 object

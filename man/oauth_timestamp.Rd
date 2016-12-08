@@ -4,11 +4,14 @@
 \name{TimeStamp}
 \alias{TimeStamp}
 \alias{TimeStamp,fatsecret-method}
+\alias{TimeStamp,fatsecret3L-method}
 \title{oauth_timestamp}
 \usage{
 TimeStamp(object)
 
 \S4method{TimeStamp}{fatsecret}(object)
+
+\S4method{TimeStamp}{fatsecret3L}(object)
 }
 \arguments{
 \item{object}{a \code{fatsecret} or \code{fatsecret3L} object}
@@ -18,6 +21,9 @@ a \code{fatsecret} or \code{fatsecret3L} object
 }
 \description{
 oauth_timestamp
+
+Assign a \code{oauth_timestamp} parameter to the current \code{fatsecret} or \code{fatsecret3L}
+object
 
 Assign a \code{oauth_timestamp} parameter to the current \code{fatsecret} or \code{fatsecret3L}
 object
