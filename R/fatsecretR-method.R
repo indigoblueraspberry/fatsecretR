@@ -37,12 +37,21 @@ setMethod(f = "fatsecretR", signature = "fatsecret",
 
 
             query_string <- gsub(oauth_param_holder, oauth_param_sign, query_string)
-            base_string <- paste0(object@RESTURLenc, "&", query_string)
+
+            #base_string <- paste0(object@RESTURLenc, "&", query_string)
+            base_string <- paste0(URLencode(object@RESTURL, reserved = TRUE), "&", query_string)
+            base_string <- paste0(object@httpMethod, "&", base_string)
+
+
             signature_value <- AuthSignature(object, base_string)
             oauth_param <- paste0(object@methods[["oauth_param"]][methodInd], "%3D", URLencode(params, reserved = TRUE))
 
             base_string <- gsub(oauth_param_sign, oauth_param, base_string)
-            baseURL <- gsub(paste0(object@RESTURLenc,"&"), "", base_string)
+
+            pattern_repl <- paste0(object@httpMethod, "&", URLencode(object@RESTURL, reserved = TRUE),"&")
+
+            baseURL <- gsub(pattern_repl, "", base_string)
+            #baseURL <- gsub(paste0(object@RESTURLenc,"&"), "", base_string)
 
             baseURL <- gsub(paste0("%26", oauth_param),"", baseURL)
             baseURL <- gsub(paste0(oauth_param,"%26"),"", baseURL)
@@ -54,6 +63,10 @@ setMethod(f = "fatsecretR", signature = "fatsecret",
 
             URLresult <- getURLContent(requestURL)
 
+            URLclean <- xmlParser(URLresult, method = methodName)
+
+            return(URLclean)
+            #return(URLresult)
           }
 
 )
