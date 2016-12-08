@@ -1,8 +1,5 @@
 .Rproj.user
 .Rhistory
 .RData
-inst/doc
 tests/testthat/tokens.rda
 TODO.md
-vignettes/
-R/scratch/
