@@ -25,9 +25,6 @@ setMethod(f = "TimeStamp", signature("fatsecret"),
 #' oauth_timestamp
 #' @rdname oauth_timestamp
 #'
-#' @description Assign a \code{oauth_timestamp} parameter to the current \code{fatsecret} or \code{fatsecret3L}
-#' object
-#'
 #' @include allGenerics.R
 #' @include allClasses.R
 

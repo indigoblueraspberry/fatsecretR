@@ -25,8 +25,7 @@ oauth_timestamp
 Assign a \code{oauth_timestamp} parameter to the current \code{fatsecret} or \code{fatsecret3L}
 object
 
-Assign a \code{oauth_timestamp} parameter to the current \code{fatsecret} or \code{fatsecret3L}
-object
+oauth_timestamp
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

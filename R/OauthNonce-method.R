@@ -27,9 +27,6 @@ setMethod(f = "OauthNonce", signature = "fatsecret",
 #' oauth_nonce
 #' @rdname oauth_nonce
 #'
-#' @description Assign a \code{oauth_nonce} parameter to the current \code{fatsecret} or \code{fatsecret3L}
-#' object
-#'
 #' @include allGenerics.R
 #' @include allClasses.R
 

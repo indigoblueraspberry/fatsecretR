@@ -28,7 +28,7 @@ Add API Keys
 
 Add your private API keys to the \code{fatsecret} object
 
-Add your private API keys to the \code{fatsecret3L} object
+Add API Keys
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

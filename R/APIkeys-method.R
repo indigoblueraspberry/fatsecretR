@@ -32,8 +32,6 @@ setMethod(f = "APIkeys", signature = "fatsecret",
 #' Add API Keys
 #' @rdname apiKeys
 #'
-#' @description Add your private API keys to the \code{fatsecret3L} object
-#'
 #' @include allGenerics.R
 #' @include allClasses.R
 

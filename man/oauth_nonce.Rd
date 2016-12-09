@@ -25,8 +25,7 @@ oauth_nonce
 Assign a \code{oauth_nonce} parameter to the current \code{fatsecret} or \code{fatsecret3L}
 object
 
-Assign a \code{oauth_nonce} parameter to the current \code{fatsecret} or \code{fatsecret3L}
-object
+oauth_nonce
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
