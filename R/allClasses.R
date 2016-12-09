@@ -44,8 +44,7 @@ setClass(Class = "fatsecret3L", representation = representation(
         request_secret = "character",
         user_request_url = "character",
         user_token = "character",
-        user_secret = "character",
-        callback_verifier = "character"
+        user_secret = "character"
         )
 )
 
