@@ -1,5 +1,14 @@
+#' Parse XML result
 #'
+#' Parse the XML result of a successful REST API request
+#'
+#' @param URLresult the character output of \code{RCurl::getURLContent}
+#' @param method the REST API method used
+#' @return a \code{data.frame} of parsed results
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}#'
 #' @export
+
 xmlParser <- function(URLresult, method)
   {
 
