@@ -27,6 +27,7 @@ Collate:
     'allGenerics.R'
     'APIkeys-method.R'
     'AuthSignature.R'
+    'AuthoriseUser-method.R'
     'OauthNonce-method.R'
     'RequestAuthorisation-method.R'
     'TimeStamp-method.R'

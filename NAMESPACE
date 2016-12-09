@@ -2,6 +2,7 @@
 
 export(APIkeys)
 export(AuthSignature)
+export(AuthoriseUser)
 export(OauthNonce)
 export(RequestAuthorisation)
 export(TimeStamp)

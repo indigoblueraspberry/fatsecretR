@@ -15,7 +15,7 @@ fatsecretR(object, method, params)
 
 \item{method}{a character specifying a REST API method}
 
-\item{params}{a character specifying parameters which correspond to the selected methpd}
+\item{params}{a character specifying parameters which correspond to the selected method}
 }
 \value{
 a \code{data.frame}
