@@ -13,15 +13,22 @@
 
 AuthSignature <- function(object, query_string, params = NULL)
 {
-  # add if params != NULL (deal with 1/2 in single function)
+  if(is.null(params)){
+    secret_value <- paste0(object@SharedSecret, "&")
 
-  shared_secret <- paste0(object@SharedSecret, "&")
+    signature_enc <- httr::hmac_sha1(secret_value, query_string)
+    signature_esc <- URLencode(signature_enc, reserved = TRUE)
 
-  signature_enc <- httr::hmac_sha1(shared_secret, query_string)
-  signature_esc <- URLencode(signature_enc, reserved = TRUE)
+    signature_value <- paste0("oauth_signature=", signature_esc)
+  }
 
-  signature_value <- paste0("oauth_signature=", signature_esc)
+  if(!is.null(params)){
 
+    secret_value <- paste0(object@SharedSecret, "&", params)
+    signature_enc <- httr::hmac_sha1(secret_value, query_string)
+    signature_esc <- URLencode(signature_enc, reserved = TRUE)
+
+    signature_value <- paste0("oauth_signature=", signature_esc)
+  }
   return(as.character(signature_value))
-
 }
