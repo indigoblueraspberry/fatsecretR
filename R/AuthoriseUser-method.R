@@ -6,9 +6,6 @@
 #' @include allGenerics.R
 #' @include allClasses.R
 
-
-params <- "4738880"
-
 setMethod(f = "AuthoriseUser", signature = "fatsecret3L",
           function(object, params){
 
@@ -44,16 +41,7 @@ setMethod(f = "AuthoriseUser", signature = "fatsecret3L",
             pattern_repl <- paste0(object@httpMethod, "&", URLencode(object@AccessURL, reserved = TRUE),"&")
 
             baseURL <- gsub(pattern_repl, "", base_string)
-           # baseURL <- gsub(paste0("%26", oauth_param),"", baseURL)
-          #  baseURL <- gsub(paste0(oauth_param,"%26"),"", baseURL)
-
-            #param_final <- paste0(oauth_param_holder, "=", strsplit(oauth_param, "%3D")[[1]][2])
-            #requestURL <- paste0(
-             # object@RequestURL, "?", param_final, "&", URLdecode(baseURL), "&", signature_value)
-
-
-            requestURL <- paste0(
-              object@AccessURL, "?", URLdecode(baseURL), "&", signature_value)
+            requestURL <- paste0(object@AccessURL, "?", URLdecode(baseURL), "&", signature_value)
 
             URLresult <- getURLContent(requestURL)
 
@@ -62,6 +50,5 @@ setMethod(f = "AuthoriseUser", signature = "fatsecret3L",
 
             return(object)
           }
-
 )
 
