@@ -81,6 +81,7 @@ setGeneric(name = "fatsecretR",
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
+#' @importFrom RCurl getURLContent curlEscape
 
 setGeneric(name = "AuthoriseUser",
            def = function(object,params)
