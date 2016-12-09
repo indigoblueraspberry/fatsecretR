@@ -82,9 +82,9 @@ setGeneric(name = "fatsecretR",
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
-setGeneric(name = "fatsecretR",
-           def = function(object,method,params)
-           {standardGeneric("fatsecretR")}
+setGeneric(name = "AuthoriseUser",
+           def = function(object,params)
+           {standardGeneric("AuthoriseUser")}
 )
 
 
