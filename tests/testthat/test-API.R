@@ -5,7 +5,13 @@ test_that("API",
           load("tokens.rda")
           expect_true(isS4(fatsecret))
 
+          expect_true(isS4(new("fatsecret")))
+          expect_true(isS4(new("fatsecret3L")))
+
           APIkeys(fatsecret, token, secret)
+
+          expect_error(APIkeys(fatsecret, 012345, secret))
+          expect_error(APIkeys(fatsecret, token, 012345))
 
           # test main API methods
 
