@@ -61,7 +61,7 @@ setGeneric(name = "APIkeys",
 #' @rdname fatsecretRmethod
 #' @param object a \code{fatsecret} object
 #' @param method a character specifying a REST API method
-#' @param params a character specifying parameters which correspond to the selected methpd
+#' @param params a character specifying parameters which correspond to the selected method
 #' @return a \code{data.frame}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
@@ -71,4 +71,20 @@ setGeneric(name = "fatsecretR",
            def = function(object,method,params)
            {standardGeneric("fatsecretR")}
 )
+
+
+#' Authorise User
+#' @rdname authUser
+#' @param object a \code{fatsecret3L} object
+#' @param params a character of the verification code (\code{oauth_verifier})
+#' @return a \code{fatsecret3L} object with a valid \code{oauth_token} and \code{oauth_secret} for the user
+#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+
+setGeneric(name = "fatsecretR",
+           def = function(object,method,params)
+           {standardGeneric("fatsecretR")}
+)
+
 
