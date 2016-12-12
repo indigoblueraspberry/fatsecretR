@@ -2,7 +2,8 @@
 
 > __R Client to the FatSecret REST API__
 
-#### Installation
+
+### Installation
 
 ```R
 devtools::install_github(wilsontom/fatsecretR)
