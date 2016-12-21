@@ -1,9 +1,5 @@
 
-
-
 #' @importFrom methods new
-
-
 
 .onLoad <- function(libname = find.package("fatsecretR"), pkgname = "fatsecretR")
 {
@@ -15,9 +11,8 @@
   object@signatureMethod <- paste0("oauth_signature_method=HMAC-SHA1")
   object@oauthVersion <- paste0("oauth_version=1.0")
 
-  method_file <- system.file("methods.RDS", package = "fatsecretR")
-
-  object@methods <- readRDS(method_file)
+  load(system.file("extdata/methods.rda", package = "fatsecretR"))
+  object@methods <- methods
 
   assign(eval(paste(text = "fatsecret")), object, envir = .GlobalEnv)
 
