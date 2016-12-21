@@ -16,11 +16,11 @@ fatsecretR(object, method, param, user_token = NULL, user_secret = NULL)
 
 \item{method}{a character specifying a REST API method}
 
+\item{param}{a character specifying parameters which correspond to the selected method}
+
 \item{user_token}{a character of a \code{oauth_token} for a user (\code{default = NULL})}
 
 \item{user_secret}{a character of a \code{oauth_secret} for a user (\code{default = NULL})}
-
-\item{params}{a character specifying parameters which correspond to the selected method}
 }
 \value{
 a \code{data.frame}
