@@ -9,7 +9,6 @@
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}#'
 #' @export
 #' @importFrom xml2 read_xml xml_find_all as_list
-#' @importFrom
 
 xmlParser <- function(URLresult, method)
   {
