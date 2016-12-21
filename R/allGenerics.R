@@ -62,13 +62,15 @@ setGeneric(name = "APIkeys",
 #' @param object a \code{fatsecret} object
 #' @param method a character specifying a REST API method
 #' @param params a character specifying parameters which correspond to the selected method
+#' @param user_token a character of a \code{oauth_token} for a user (\code{default = NULL})
+#' @param user_secret a character of a \code{oauth_secret} for a user (\code{default = NULL})
 #' @return a \code{data.frame}
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 setGeneric(name = "fatsecretR",
-           def = function(object,method,params)
+           def = function(object, method, param, user_token = NULL ,user_secret = NULL)
            {standardGeneric("fatsecretR")}
 )
 
