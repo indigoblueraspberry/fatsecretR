@@ -61,7 +61,7 @@ setGeneric(name = "APIkeys",
 #' @rdname fatsecretRmethod
 #' @param object a \code{fatsecret} object
 #' @param method a character specifying a REST API method
-#' @param params a character specifying parameters which correspond to the selected method
+#' @param param a character specifying parameters which correspond to the selected method
 #' @param user_token a character of a \code{oauth_token} for a user (\code{default = NULL})
 #' @param user_secret a character of a \code{oauth_secret} for a user (\code{default = NULL})
 #' @return a \code{data.frame}
