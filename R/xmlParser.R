@@ -63,6 +63,37 @@ xmlParser <- function(URLresult, method)
 
   }
 
+
+  if(method == "getFoodEntry"){
+
+    xml_a <- xml_find_all(xml_raw, "//d1:food_entry")
+
+    if(length(xml_a) == 0){
+      stop("...no food entry found for the specified date", call. = FALSE)
+    }
+
+    xml_a_list <- lapply(xml_a, as_list)
+    xml_unlist <- lapply(xml_a_list, function(x)(lapply(x,unlist)))
+
+    # do the matching and df building here
+
+    load(system.file("extdata/nutrient_index.rda", package = "fatsecretR"))
+
+    col_index <- data.frame(matrix(ncol = length(xml_unlist), nrow = nrow(nutrient_index)))
+    rownames(col_index) <- nutrient_index$value
+
+    for(i in seq_along(xml_unlist)){
+      match_idx <- match(names(xml_unlist[[i]]), rownames(col_index))
+      col_index[match_idx,i] <- unlist(xml_unlist[[i]])
+      colnames(col_index)[i] <- col_index["food_entry_id",1]
+    }
+
+    col_index[is.na(col_index)] <- 0
+
+    res_df <- col_index
+
+  }
+
   return(res_df)
   }
 
