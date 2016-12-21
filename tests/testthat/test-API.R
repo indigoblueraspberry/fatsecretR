@@ -16,6 +16,7 @@ test_that("API",
           # test main API methods
 
           expect_true(is.data.frame(fatsecretR(fatsecret, "getFood", "beer")))
+          expect_true(is.data.frame(fatsecretR(fatsecret, "getFood", "baked+beans")))
           expect_true(is.data.frame(fatsecretR(fatsecret, "getFoodID", "1265")))
 
 
@@ -43,6 +44,13 @@ test_that("API",
           expect_true(is.character(SteveFrench@request_secret))
           expect_true(is.character(SteveFrench@user_request_url))
 
+
+          expect_true(is.data.frame(fatsecretR(fatsecret, "getFoodEntry", "2016-12-20",
+                                               SteveFrenchToken, SteveFrenchSecret)))
+          expect_true(is.data.frame(fatsecretR(fatsecret, "getFoodEntry", "2016-12-19",
+                                               SteveFrenchToken, SteveFrenchSecret)))
+          expect_error(fatsecretR(fatsecret, "getFoodEntry", "2016-12-21",
+                                               SteveFrenchToken, SteveFrenchSecret))
 
           }
 )
