@@ -6,14 +6,19 @@
 \alias{fatsecretR,fatsecret-method}
 \title{fatsecretR REST API}
 \usage{
-fatsecretR(object, method, params)
+fatsecretR(object, method, param, user_token = NULL, user_secret = NULL)
 
-\S4method{fatsecretR}{fatsecret}(object, method, params)
+\S4method{fatsecretR}{fatsecret}(object, method, param, user_token = NULL,
+  user_secret = NULL)
 }
 \arguments{
 \item{object}{a \code{fatsecret} object}
 
 \item{method}{a character specifying a REST API method}
+
+\item{user_token}{a character of a \code{oauth_token} for a user (\code{default = NULL})}
+
+\item{user_secret}{a character of a \code{oauth_secret} for a user (\code{default = NULL})}
 
 \item{params}{a character specifying parameters which correspond to the selected method}
 }
