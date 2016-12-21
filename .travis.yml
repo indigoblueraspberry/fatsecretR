@@ -4,7 +4,7 @@ warnings_are_errors: false
 apt_packages:
 - libxml2
 r_packages:
-- XML
+- xml2
 - RCurl
 - httr
 - plyr
@@ -17,5 +17,5 @@ notifications:
     on_success: change
     on_failure: change
 before_install:
-- openssl aes-256-cbc -K $encrypted_7719d0814fcd_key -iv $encrypted_7719d0814fcd_iv
+- openssl aes-256-cbc -K $encrypted_be644f3babca_key -iv $encrypted_be644f3babca_iv
   -in tests/testthat/tokens.rda.enc -out tests/testthat/tokens.rda -d
