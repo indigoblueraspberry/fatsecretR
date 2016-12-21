@@ -9,6 +9,7 @@
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}#'
 #' @export
 #' @importFrom xml2 read_xml xml_find_all as_list
+#' @importFrom
 
 xmlParser <- function(URLresult, method)
   {
@@ -76,7 +77,7 @@ xmlParser <- function(URLresult, method)
     xml_unlist <- lapply(xml_a_list, function(x)(lapply(x,unlist)))
 
     # do the matching and df building here
-
+    nutrient_index <- NULL
     load(system.file("extdata/nutrient_index.rda", package = "fatsecretR"))
 
     col_index <- data.frame(matrix(ncol = length(xml_unlist), nrow = nrow(nutrient_index)))
