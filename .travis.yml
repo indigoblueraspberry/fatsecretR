@@ -1,8 +1,15 @@
 language: r
 sudo: required
 warnings_are_errors: false
+dist: trusty
+
+r:
+ - release
+ - devel
+
 apt_packages:
 - libxml2
+
 r_packages:
 - xml2
 - RCurl
@@ -10,8 +17,10 @@ r_packages:
 - plyr
 - testthat
 - covr
+
 after_success:
 - Rscript -e 'library(covr);codecov()'
+
 notifications:
   email:
     on_success: change
