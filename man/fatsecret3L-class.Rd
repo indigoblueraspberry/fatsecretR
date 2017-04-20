@@ -46,7 +46,7 @@ existing FatSecret users
 
 \item{\code{user_secret}}{the \code{oauth_secret} parameter for a user}
 }}
+
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-

@@ -20,9 +20,9 @@ Suggests:
     rmarkdown
 License: GPL (>= 3)
 LazyData: TRUE
-RoxygenNote: 5.0.0
+RoxygenNote: 6.0.1
 VignetteBuilder: knitr
-Collate:
+Collate: 
     'allClasses.R'
     'allGenerics.R'
     'APIkeys-method.R'
@@ -33,5 +33,6 @@ Collate:
     'TimeStamp-method.R'
     'fatsecretR-method.R'
     'newAuth.R'
+    'show-method.R'
     'xmlParser.R'
     'zzz.R'

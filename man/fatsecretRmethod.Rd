@@ -33,4 +33,3 @@ Main worker method for all REST API calls
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-

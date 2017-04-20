@@ -30,7 +30,7 @@ A class to store essential variables needed for making successful request to the
 
 \item{\code{methods}}{a \code{data.frame} of currently available methods in \code{fatsecretR}}
 }}
+
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-

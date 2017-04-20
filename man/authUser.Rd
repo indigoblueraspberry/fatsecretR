@@ -26,4 +26,3 @@ Retrieve the \code{oauth_token} and \code{oauth_secret} following a successful 3
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-

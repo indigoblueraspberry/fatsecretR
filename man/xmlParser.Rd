@@ -20,4 +20,3 @@ Parse the XML result of a successful REST API request
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}#'
 }
-

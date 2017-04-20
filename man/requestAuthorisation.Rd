@@ -29,4 +29,3 @@ Generate a \code{authorisation_request_url} for a current \code{FatSecret} user,
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-

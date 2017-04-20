@@ -22,4 +22,3 @@ Generate the \code{oauth_signature} parameter; which is used to sign all API req
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}
 }
-
