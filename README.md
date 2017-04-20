@@ -11,7 +11,9 @@ Installation & Usage
 
 - [Getting Started](https://github.com/wilsontom/fatsecretR/wiki/Getting-Started)
 
-- [Non-Signed Requests](https://github.com/wilsontom/fatsecretR/wiki/Non-Signed-Requests)
+- [API Requests](https://github.com/wilsontom/fatsecretR/wiki/API-Requests)
+
+- [Basic Usage](https://github.com/wilsontom/fatsecretR/wiki/Basic-Usage)
 
 - [Signed & Delegated Requests](https://github.com/wilsontom/fatsecretR/wiki/Signed-&-Delegated-Requests)
 
